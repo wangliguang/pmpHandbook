@@ -14,6 +14,10 @@ export default class extends React.Component {
     subTitle: '#11',
   };
 
+  componentDidMount() {
+    router.replace('/integration');
+  }
+
   onCollapse = collapsed => {
     this.setState({ collapsed });
   };
