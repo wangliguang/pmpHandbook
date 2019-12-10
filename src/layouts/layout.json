@@ -1,15 +1,26 @@
 [
   {
     "title": "#1",
-    "path": "v1",
-    "subTitles": [ "#11", "#12", "#13" ]
+    "subTitles": [
+      {
+        "title": "#11", "path": "/integration"
+      }
+    ]
   },
   {
     "title": "#2",
-    "subTitles": [ "#21", "#22", "#23" ]
+    "subTitles": [
+      {
+        "title": "#21", "path": "/integration"
+      }
+    ]
   },
   {
     "title": "#3",
-    "subTitles": [ "#31", "#32", "#33" ]
+    "subTitles": [
+      {
+        "title": "#31", "path": "/integration"
+      }
+    ]
   }
 ]

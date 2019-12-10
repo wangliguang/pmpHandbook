@@ -2,6 +2,7 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 import React from 'react';
 import LAYOUT_DATA from './layout';
 import router from 'umi/router';
+import Link from 'umi/link';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -13,10 +14,6 @@ export default class extends React.Component {
     subTitle: '#11',
   };
 
-  componentDidMount() {
-    router.push('/integration');
-  }
-
   onCollapse = collapsed => {
     this.setState({ collapsed });
   };
@@ -25,8 +22,8 @@ export default class extends React.Component {
     let title = '';
     for (const key in LAYOUT_DATA) {
       const tempItem = LAYOUT_DATA[key];
-      tempItem.subTitles.forEach(element => {
-        if (item.key === element) {
+      tempItem.subTitles.forEach(subItem => {
+        if (item.key === subItem.title) {
           title = tempItem.title;
         }
         if (title) return false;
@@ -50,9 +47,9 @@ export default class extends React.Component {
                 key={item.title}
                 title={<span>{item.title}</span>}
               >
-              {item.subTitles.map((subTitle) => (
-                <Menu.Item onClick={this.handleMenuItemClick} key={subTitle}>
-                  <span>{subTitle}</span>
+              {item.subTitles.map((subItem) => (
+                <Menu.Item onClick={this.handleMenuItemClick} key={subItem.title}>
+                  <Link to={subItem.path}>{subItem.title}</Link>
                 </Menu.Item>
               ))}
             </SubMenu>
