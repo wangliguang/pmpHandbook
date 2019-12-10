@@ -8,12 +8,26 @@ const { SubMenu } = Menu;
 export default class extends React.Component {
   state = {
     collapsed: false,
+    title: '#1',
+    subTitle: '',
   };
 
   onCollapse = collapsed => {
-    console.log(collapsed);
     this.setState({ collapsed });
   };
+
+  handleSubMenuClick = (item) => {
+    this.setState({
+      title: item.key,
+      subTitle: '',
+    });
+  } 
+
+  handleMenuItemClick = (item) => {
+    this.setState({
+      subTitle: item.key,
+    });
+  } 
 
   render() {
     return (
@@ -21,13 +35,14 @@ export default class extends React.Component {
         <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            {LAYOUT_DATA.map((item, i) => (
+            {LAYOUT_DATA.map((item) => (
               <SubMenu
-                key={`${i}`}
+                onTitleClick={this.handleSubMenuClick}
+                key={item.title}
                 title={<span>{item.title}</span>}
               >
-              {item.subType.map((subTypeTitle, j) => (
-                <Menu.Item key={`${i}_${j}`}>{subTypeTitle}</Menu.Item>
+              {item.subType.map((subTypeTitle) => (
+                <Menu.Item onClick={this.handleMenuItemClick} key={subTypeTitle}>{subTypeTitle}</Menu.Item>
               ))}
             </SubMenu>
             ))}
@@ -37,12 +52,12 @@ export default class extends React.Component {
           <Header style={{ background: '#fff', padding: 0 }} />
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
+              <Breadcrumb.Item>{this.state.title}</Breadcrumb.Item>
+              <Breadcrumb.Item>{this.state.subTitle}</Breadcrumb.Item>
             </Breadcrumb>
             <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>Bill is a cat.</div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+          <Footer style={{ textAlign: 'center' }}>橘子科技 ©2019 Created by GG</Footer>
         </Layout>
       </Layout>
     );
