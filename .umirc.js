@@ -27,6 +27,6 @@ export default {
   exportStatic: false,
   publicPath: '/',
   runtimePublicPath: true,
-  base: '/docs',
+  base: '/',
 };
 

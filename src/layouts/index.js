@@ -15,7 +15,7 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    router.replace('/integration');
+    // router.replace('/integration');
   }
 
   onCollapse = collapsed => {
