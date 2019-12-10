@@ -28,6 +28,6 @@ export default {
   publicPath: '/',
   exportStatic: true,
   runtimePublicPath: true,
-  base: '/',
+  base: '/pmpHandbook',
 };
 
