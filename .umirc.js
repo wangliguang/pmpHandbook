@@ -25,7 +25,7 @@ export default {
   ],
   outputPath: './docs',
   exportStatic: false,
-  publicPath: '/',
+  publicPath: './',
   runtimePublicPath: true,
   base: '/',
 };
