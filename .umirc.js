@@ -9,6 +9,13 @@ export default {
       routes: [
         { path: '/', component: '../pages/index' }
       ]
+    },
+    {
+      path: '/integration',
+      component: '../pages/integration/index',
+      routes: [
+        { path: '/integration', component: '../pages/integration/index' }
+      ]
     }
   ],
   plugins: [
