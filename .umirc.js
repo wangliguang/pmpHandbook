@@ -23,6 +23,6 @@ export default {
       },
     ],
   ],
-  outputPath: './doc',
+  outputPath: './docs',
 };
 
