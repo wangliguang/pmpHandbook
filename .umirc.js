@@ -25,8 +25,8 @@ export default {
   ],
   outputPath: './docs',
   exportStatic: false,
-  publicPath: 'pmpHandbook/',
+  publicPath: '/',
   runtimePublicPath: true,
-  base: '/',
+  base: '/docs',
 };
 
