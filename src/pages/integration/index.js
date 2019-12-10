@@ -1,6 +1,5 @@
 import React from 'react';
 import STYLE from './index.style.css';
-import xx from '../../../img/integration/1.png';
 
 const IMG_DATA = [
   require('../../../img/integration/1.png'),
@@ -17,7 +16,7 @@ export default class IntegrationPage extends React.Component {
         {IMG_DATA.map((img) => (
           <div className={STYLE.box}>
             <div className={STYLE.pic}>
-              <img src={img}/>
+              <img alt='' src={img}/>
             </div>
           </div>
         ))}
