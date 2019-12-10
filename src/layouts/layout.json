@@ -11,15 +11,7 @@
     "title": "#2",
     "subTitles": [
       {
-        "title": "#21", "path": "/integration"
-      }
-    ]
-  },
-  {
-    "title": "#3",
-    "subTitles": [
-      {
-        "title": "#31", "path": "/integration"
+        "title": "#21", "path": "/scope"
       }
     ]
   }
