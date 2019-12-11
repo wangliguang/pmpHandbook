@@ -1,35 +1,27 @@
 [
   {
-    "title": "#1",
+    "title": "项目整合管理",
     "subTitles": [
       {
-        "title": "项目章程", "path": "/integration/pmp41"
+        "title": "制定项目章程", "path": "/integration/pmp41"
       },
       {
-        "title": "#12", "path": "/integration/pmp42"
+        "title": "指定项目管理计划", "path": "/integration/pmp42"
       },
       {
-        "title": "#13", "path": "/integration/pmp43"
+        "title": "指导和管理项目工作", "path": "/integration/pmp43"
       },
       {
-        "title": "#14", "path": "/integration/pmp44"
+        "title": "管理项目知识", "path": "/integration/pmp44"
       },
       {
-        "title": "#15", "path": "/integration/pmp45"
+        "title": "监控项目工作", "path": "/integration/pmp45"
       },
       {
-        "title": "#16", "path": "/integration/pmp46"
+        "title": "实施整体变更控制", "path": "/integration/pmp46"
       },
       {
-        "title": "#17", "path": "/integration/pmp47"
-      }
-    ]
-  },
-  {
-    "title": "#2",
-    "subTitles": [
-      {
-        "title": "#21", "path": "/scope"
+        "title": "结束项目或阶段", "path": "/integration/pmp47"
       }
     ]
   }

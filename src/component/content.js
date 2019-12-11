@@ -11,16 +11,6 @@ export default class Content extends React.PureComponent {
     visible: false,
   }
 
-  componentDidMount() {
-
-    // let imgsElements = document.getElementsByClassName('img');
-    // imgsElements = Array.prototype.slice.call(imgsElements);
-    // imgsElements.forEach(element => {
-    //   element.addEventListener('click', this.handleImgClick, true);
-    // });
-  }
-
-
   handleImgClick = (activeIndex) => {
     this.setState({
       activeIndex,
@@ -38,13 +28,13 @@ export default class Content extends React.PureComponent {
       <Collapse bordered={false} defaultActiveKey={['1']}>
           <Panel header="图片" key="1">
             <div className={STYLE.waterfall}>
-              {this.props.imgs.map((img, index) => (
+              {this.props.imgs.length != 0 ? this.props.imgs.map((img, index) => (
                 <div key={`${index}`} className={STYLE.box}>
                   <div className={STYLE.pic}>
                     <img onClickCapture={() => this.handleImgClick(index)} className="img" alt='' src={img}/>
                   </div>
                 </div>
-              ))}
+              )): '敬请期待'}
             </div>
           </Panel>
           <Panel header="文档" key="2">
