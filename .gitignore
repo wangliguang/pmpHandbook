@@ -8,7 +8,7 @@
 /package-lock.json
 
 # production
-docs/
+dist/
 # misc
 .DS_Store
 
