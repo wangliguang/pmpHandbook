@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "start": "yarn countResource && umi dev",
-    "build": "yarn countResource && umi build",
+    "start": "npm run countResource && umi dev",
+    "build": "npm run countResource && umi build",
     "test": "umi test",
     "lint": "eslint --ext .js src mock tests",
     "precommit": "pwd",
