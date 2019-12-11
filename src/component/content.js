@@ -9,22 +9,20 @@ export default class Content extends React.PureComponent {
 
   state = {
     visible: false,
-    viewerDataArray: [],
   }
 
-  componentWillReceiveProps() {
-    let imgArray = this.props.imgs.map((img) => {
-      return {
-        src: `http://${document.location.host}${img}`,
-      };
-    });
-    this.setState({
-      viewerDataArray: imgArray,
-    });    
+  componentDidMount() {
+
+    // let imgsElements = document.getElementsByClassName('img');
+    // imgsElements = Array.prototype.slice.call(imgsElements);
+    // imgsElements.forEach(element => {
+    //   element.addEventListener('click', this.handleImgClick, true);
+    // });
   }
 
 
   handleImgClick = (activeIndex) => {
+    // const index = e.target.getAttribute("data-index");
     this.setState({
       activeIndex,
       visible: true,
@@ -32,14 +30,19 @@ export default class Content extends React.PureComponent {
   }
 
   render() {
+    const viewerDataArray = this.props.imgs.map((img) => {
+      return {
+        src: `http://${document.location.host}${img}`,
+      };
+    });
     return (
       <Collapse bordered={false} defaultActiveKey={['1']}>
           <Panel header="图片" key="1">
             <div className={STYLE.waterfall}>
               {this.props.imgs.map((img, index) => (
-                <div onClick={() => this.handleImgClick(index)} key={`${index}`} className={STYLE.box}>
+                <div key={`${index}`} className={STYLE.box}>
                   <div className={STYLE.pic}>
-                    <img alt='' src={img}/>
+                    <img onClickCapture={() => this.handleImgClick(index)} className="img" alt='' src={img}/>
                   </div>
                 </div>
               ))}
@@ -59,7 +62,7 @@ export default class Content extends React.PureComponent {
             visible={this.state.visible}
             onClose={() => this.setState({ visible: false})}
             onMaskClick={() => this.setState({ visible: false})}
-            images={this.state.viewerDataArray}
+            images={viewerDataArray}
             activeIndex={this.state.activeIndex}
           />
         </Collapse>
