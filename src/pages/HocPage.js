@@ -12,7 +12,7 @@ export default function (component) {
     componentDidMount() {
       const test = TOOLS.getData();
       this.setState({
-        imgData: test.imgArray,
+        imgData: test.imgArray || [],
       });
     } 
 
