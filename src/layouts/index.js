@@ -45,7 +45,7 @@ export default class extends React.Component {
       <Layout style={{ minHeight: '100vh' }}>
         <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
           <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={['制定项目章程']} mode="inline">
+          <Menu theme="dark" defaultOpenKeys={['项目整合管理']} defaultSelectedKeys={['制定项目章程']} mode="inline">
             {LAYOUT_DATA.map((item) => (
               <SubMenu
                 key={item.title}
