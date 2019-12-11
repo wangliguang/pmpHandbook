@@ -30,11 +30,10 @@ function getCurrenChapterSectionName() {
 
 function getData() {
   const { capterName, sectionName } = getCurrenChapterSectionName();
-  let { imgArray, fileArray } = parseData()[`${capterName}/${sectionName}`];
-
+  const data = parseData()[`${capterName}/${sectionName}`] || {};
   return {
-    imgArray,
-    fileArray
+    imgArray: data.imgArray || [],
+    fileArray: data.fileArray || [],
   }
 }
 

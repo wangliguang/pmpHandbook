@@ -27,6 +27,11 @@ function getIndexOfPathByDeep(obj, dir, curDir, deep) {
 }
 
 const json = getIndexByPath('../src/assets');
-fs.writeFile('/Users/wangliguang/Desktop/idea/pmpHandbook/src/assets/index.json', JSON.stringify(json), function (params) {
+fs.writeFile(path.join(__filename, '../../src/assets/index.json'), JSON.stringify(json), function (e) {
+  if (e) {
+    console.log('❌❌❌❌：资源错误');
+  }
   console.log('👍👍👍👍：资源计数完毕');
 });
+
+
