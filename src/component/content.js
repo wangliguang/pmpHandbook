@@ -20,10 +20,10 @@ export default class Content extends React.Component {
             </div>
           </Panel>
           <Panel header="文档" key="2">
-            {'xxx'}
+            {'敬请期待'}
           </Panel>
           <Panel header="文章" key="3">
-            {'xx'}
+            {'敬请期待'}
           </Panel>
         </Collapse>
     )
