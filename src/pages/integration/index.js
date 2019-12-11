@@ -20,12 +20,20 @@ export default class IntegrationPage extends React.Component {
       <div className={STYLE.page}>
         <Collapse bordered={false} defaultActiveKey={['1']}>
           <Panel header="图片" key="1">
-          {'xxx'}
+            <div className={STYLE.waterfall}>
+              {IMG_DATA.map((img) => (
+                <div className={STYLE.box}>
+                  <div className={STYLE.pic}>
+                    <img src={img}/>
+                  </div>
+                </div>
+              ))}
+            </div>
           </Panel>
-          <Panel header="This is panel header 2" key="2">
+          <Panel header="文档" key="2">
             {'xxx'}
           </Panel>
-          <Panel header="This is panel header 3" key="3">
+          <Panel header="文章" key="3">
             {'xx'}
           </Panel>
         </Collapse>

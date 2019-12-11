@@ -1,7 +1,9 @@
 .page {
   padding: 20;
   background: white;
-  min-height: 300px;
+}
+
+.waterfall {
   column-width: 200px;
 }
 
