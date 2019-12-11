@@ -23,7 +23,7 @@ export default {
       },
     ],
   ],
-  outputPath: './docs',
+  outputPath: './dist',
   publicPath: '/',
   exportStatic: true,
   runtimePublicPath: true,
