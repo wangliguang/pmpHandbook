@@ -20,8 +20,8 @@ function parseData() {
 function getCurrenChapterSectionName() {
   const item = document.scripts[0];
   const array = item.baseURI.split('/');
-  const sectionName = array.pop();
-  const capterName = array.pop();
+  const capterName = array[3];
+  const sectionName = array[4];
   return {
     capterName,
     sectionName,
