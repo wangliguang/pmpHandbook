@@ -10,9 +10,9 @@ export default function (component) {
     }
 
     componentDidMount() {
-      const test = TOOLS.getData();
+      const data = TOOLS.getData();
       this.setState({
-        imgData: test.imgArray || [],
+        imgData: data.imgArray,
       });
     } 
 
