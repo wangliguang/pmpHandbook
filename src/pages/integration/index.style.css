@@ -2,20 +2,3 @@
   padding: 20;
   background: white;
 }
-
-.waterfall {
-  column-width: 200px;
-}
-
-.box {
-  padding: 15px 7px 0 7px;
-}
-
-.pic {
-  border: 1px solid #ddd;
-}
-
-.pic img {
-  width: 165px;
-  padding: 10px;
-}

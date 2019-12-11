@@ -1,42 +1,23 @@
 import React from 'react';
 import STYLE from './index.style.css';
-import { Collapse } from 'antd';
-const { Panel } = Collapse;
+import Content from '../../component/content';
 
 const IMG_DATA = [
-  require('../../../img/integration/1.png'),
-  require('../../../img/integration/2.png'),
-  require('../../../img/integration/3.png'),
-  require('../../../img/integration/4.png'),
-  require('../../../img/integration/5.png'),
-  require('../../../img/integration/6.png'),
-  require('../../../img/integration/7.png'),
-  require('../../../img/integration/8.png'),
+  require('../../assets/integration/1.png'),
+  require('../../assets/integration/2.png'),
+  require('../../assets/integration/3.png'),
+  require('../../assets/integration/4.png'),
+  require('../../assets/integration/5.png'),
+  require('../../assets/integration/6.png'),
+  require('../../assets/integration/7.png'),
+  require('../../assets/integration/8.png'),
 ]
 export default class IntegrationPage extends React.Component {
 
   render() {
     return (
       <div className={STYLE.page}>
-        <Collapse bordered={false} defaultActiveKey={['1']}>
-          <Panel header="图片" key="1">
-            <div className={STYLE.waterfall}>
-              {IMG_DATA.map((img) => (
-                <div className={STYLE.box}>
-                  <div className={STYLE.pic}>
-                    <img src={img}/>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Panel>
-          <Panel header="文档" key="2">
-            {'xxx'}
-          </Panel>
-          <Panel header="文章" key="3">
-            {'xx'}
-          </Panel>
-        </Collapse>
+        <Content imgs={IMG_DATA}/>
       </div>
     )
   }
