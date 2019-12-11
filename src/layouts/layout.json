@@ -3,7 +3,25 @@
     "title": "#1",
     "subTitles": [
       {
-        "title": "#11", "path": "/integration"
+        "title": "#11", "path": "/integration/pmp41"
+      },
+      {
+        "title": "#12", "path": "/integration/pmp42"
+      },
+      {
+        "title": "#13", "path": "/integration/pmp43"
+      },
+      {
+        "title": "#14", "path": "/integration/pmp44"
+      },
+      {
+        "title": "#15", "path": "/integration/pmp45"
+      },
+      {
+        "title": "#16", "path": "/integration/pmp46"
+      },
+      {
+        "title": "#17", "path": "/integration/pmp47"
       }
     ]
   },

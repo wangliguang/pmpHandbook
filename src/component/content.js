@@ -10,10 +10,10 @@ export default class Content extends React.Component {
       <Collapse bordered={false} defaultActiveKey={['1']}>
           <Panel header="图片" key="1">
             <div className={STYLE.waterfall}>
-              {this.props.imgs.map((img) => (
-                <div className={STYLE.box}>
+              {this.props.imgs.map((img, index) => (
+                <div key={`${index}`} className={STYLE.box}>
                   <div className={STYLE.pic}>
-                    <img src={img}/>
+                    <img alt='' src={img}/>
                   </div>
                 </div>
               ))}
