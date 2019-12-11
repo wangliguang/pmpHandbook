@@ -1,11 +1,12 @@
 {
   "private": true,
   "scripts": {
-    "start": "umi dev",
-    "build": "umi build",
+    "start": "yarn countResource && umi dev",
+    "build": "yarn countResource && umi build",
     "test": "umi test",
     "lint": "eslint --ext .js src mock tests",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "countResource": "node ./script/CountResource.js"
   },
   "dependencies": {
     "antd": "^3.19.5",
