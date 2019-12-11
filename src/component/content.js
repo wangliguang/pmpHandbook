@@ -22,7 +22,6 @@ export default class Content extends React.PureComponent {
 
 
   handleImgClick = (activeIndex) => {
-    // const index = e.target.getAttribute("data-index");
     this.setState({
       activeIndex,
       visible: true,
