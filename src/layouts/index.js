@@ -10,8 +10,8 @@ const { SubMenu } = Menu;
 export default class extends React.Component {
   state = {
     collapsed: false,
-    title: '项目整合管理',
-    subTitle: '制定项目章程',
+    title: '四：项目整合管理',
+    subTitle: '4.1：制定项目章程',
   };
 
   componentDidMount() {
@@ -45,7 +45,7 @@ export default class extends React.Component {
       <Layout style={{ minHeight: '100vh' }}>
         <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
           <div className="logo" />
-          <Menu theme="dark" defaultOpenKeys={['项目整合管理']} defaultSelectedKeys={['制定项目章程']} mode="inline">
+          <Menu theme="dark" defaultOpenKeys={['四：项目整合管理']} defaultSelectedKeys={['4.1：制定项目章程']} mode="inline">
             {LAYOUT_DATA.map((item) => (
               <SubMenu
                 key={item.title}
