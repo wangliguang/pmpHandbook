@@ -16,12 +16,18 @@ export default function (component) {
         imgData: data.imgArray,
         fileData: data.fileArray,
       });
+
+      // 插入script标签并监听加载
+      var body = document.getElementsByTagName('body')[0];
+      var script = document.createElement('script');
+      script.type= 'text/javascript';
+      script.src= '<script type="text/javascript" src="https://v1.cnzz.com/z_stat.php?id=1278286627&web_id=1278286627"></script>';
+      body.appendChild(script);
     } 
 
     render() {
       return (
         <div style={{ padding: 20, background: "white"}}>
-          <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1278286627'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1278286627' type='text/javascript'%3E%3C/script%3E"));</script>
           <Content imgs={this.state.imgData} files={this.state.fileData}/>
         </div>
       )
