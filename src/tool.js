@@ -8,8 +8,8 @@ function parseData() {
     for (const j in chapter) {
       const section = chapter[j];
       result[`${i}/${j}`] = {
-        imgArray: objToArray(`${i}/${j}`, section.img),
-        fileArray: objToArray(`${i}/${j}`, section.file),
+        imgArray: objToArray(`${i}/${j}`, section.img, 'img'),
+        fileArray: objToArray(`${i}/${j}`, section.file, 'file'),
       };
     }
   }
@@ -38,10 +38,10 @@ function getData() {
 }
 
 
-function objToArray(prefix, obj) {
+function objToArray(prefix, obj, fileType) {
   const dataArray = [];
   for (const key in obj) {
-    dataArray.push(require(`./assets/${prefix}/img/${key}`));
+    dataArray.push(require(`./assets/${prefix}/${fileType}/${key}`));
   }
   return dataArray;
 }

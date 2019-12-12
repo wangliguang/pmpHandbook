@@ -1,5 +1,5 @@
 import React from 'react';
-import { Collapse } from 'antd';
+import { Collapse, List } from 'antd';
 import STYLE from './content.style.css';
 import Viewer from 'react-viewer';
 
@@ -24,6 +24,9 @@ export default class Content extends React.PureComponent {
         src: `http://${document.location.host}${img}`,
       };
     });
+
+    
+
     return (
       <Collapse bordered={false} defaultActiveKey={['1']}>
           <Panel header="图片" key="1">
@@ -38,7 +41,17 @@ export default class Content extends React.PureComponent {
             </div>
           </Panel>
           <Panel header="文档" key="2">
-            {'敬请期待'}
+          {this.props.files.length != 0 ? (
+            <List
+              bordered
+              dataSource={this.props.files}
+              renderItem={item => (
+                <List.Item>
+                  <a target="view_window" href={`http://${document.location.host}${item}`}>{item.split('/')[2].split('.')[0]}</a>
+                </List.Item>
+              )}
+            />
+          ) : '敬请期待'}
           </Panel>
           <Panel header="文章" key="3">
             {'敬请期待'}
