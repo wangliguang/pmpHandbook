@@ -43,6 +43,7 @@ export default class extends React.Component {
   render() {
     return (
       <Layout style={{ minHeight: '100vh' }}>
+        <script type="text/javascript" src="https://v1.cnzz.com/z_stat.php?id=1278286627&web_id=1278286627"></script>
         <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
           <div className="logo" />
           <Menu theme="dark" defaultOpenKeys={['项目整合管理']} defaultSelectedKeys={['制定项目章程']} mode="inline">
