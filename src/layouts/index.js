@@ -3,6 +3,7 @@ import React from 'react';
 import LAYOUT_DATA from './layout';
 import router from 'umi/router';
 import Link from 'umi/link';
+import STYLE from './index.css';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -43,7 +44,7 @@ export default class extends React.Component {
   render() {
     return (
       <Layout style={{ minHeight: '100vh' }}>
-        <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
+        <Sider width={"250px"} className={STYLE.sider} collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} breakpoint="lg">
           <div className="logo" />
           <Menu theme="dark" defaultOpenKeys={['四：项目整合管理']} defaultSelectedKeys={['4.1：制定项目章程']} mode="inline">
             {LAYOUT_DATA.map((item) => (
@@ -60,7 +61,7 @@ export default class extends React.Component {
             ))}
           </Menu>
         </Sider>
-        <Layout>
+        <Layout style={{ marginLeft: this.state.collapsed ? 80 : 250 }}>
           <Header style={{ background: '#fff', padding: 0 }} />
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>

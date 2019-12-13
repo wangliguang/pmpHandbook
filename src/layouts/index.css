@@ -13,3 +13,12 @@
   color: white;
   margin: 0;
 }
+
+.sider {
+  overflow: auto;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  max-width: 500px;
+  width: 500px;
+}
