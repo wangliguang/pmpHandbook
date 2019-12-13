@@ -28,7 +28,7 @@ export default class Content extends React.PureComponent {
     
 
     return (
-      <Collapse bordered={false} defaultActiveKey={['1']}>
+      <Collapse bordered={false} defaultActiveKey={['1', '2', '3']}>
           <Panel header="图片" key="1">
             <div className={STYLE.waterfall}>
               {this.props.imgs.length != 0 ? this.props.imgs.map((img, index) => (
