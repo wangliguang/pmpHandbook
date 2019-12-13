@@ -1,4 +1,4 @@
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu, Breadcrumb, Icon, Button } from 'antd';
 import React from 'react';
 import LAYOUT_DATA from './layout';
 import router from 'umi/router';
@@ -62,7 +62,10 @@ export default class extends React.Component {
           </Menu>
         </Sider>
         <Layout style={{ marginLeft: this.state.collapsed ? 80 : 250 }}>
-          <Header style={{ background: '#fff', padding: 0 }} />
+          <Header style={{ background: '#fff', paddingRight: '20px', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+            <Button type="primary" shape="circle" icon="wechat" style={{ marginRight: '15px'}}/>
+            <Button type="primary" shape="circle" icon="exclamation-circle" />
+          </Header>
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item>{this.state.title}</Breadcrumb.Item>
