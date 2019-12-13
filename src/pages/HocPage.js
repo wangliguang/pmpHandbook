@@ -17,15 +17,12 @@ export default function (component) {
         fileData: data.fileArray,
       });
 
-      // 为了将统计代码放在最Body的最后面
-      setTimeout(() => {
-        // 插入script标签并监听加载
-        var body = document.getElementsByTagName('body')[0];
-        var script = document.createElement('script');
-        script.type= 'text/javascript';
-        script.src= '<script type="text/javascript" src="https://v1.cnzz.com/z_stat.php?id=1278286627&web_id=1278286627"></script>';
-        body.appendChild(script);
-      }, 1000);
+      // 插入script标签，用于做埋点统计
+      var body = document.getElementsByTagName('body')[0];
+      var script = document.createElement('script');
+      script.type= 'text/javascript';
+      script.src= 'https://v1.cnzz.com/z_stat.php?id=1278286627&web_id=1278286627';
+      body.appendChild(script);
     } 
 
     render() {
