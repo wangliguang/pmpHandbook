@@ -27,7 +27,7 @@ export default function (component) {
 
     render() {
       return (
-        <div style={{ padding: 20, background: "white"}}>
+        <div style={{ padding: 20, minHeight: 500, background: "white"}}>
           <Content imgs={this.state.imgData} files={this.state.fileData}/>
         </div>
       )

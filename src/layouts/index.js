@@ -1,4 +1,4 @@
-import { Layout, Menu, Breadcrumb, Icon, Button } from 'antd';
+import { Layout, Menu, Breadcrumb, Icon, Button, Input } from 'antd';
 import React from 'react';
 import LAYOUT_DATA from './layout';
 import router from 'umi/router';
@@ -7,6 +7,7 @@ import STYLE from './index.css';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
+const { Search } = Input;
 
 export default class extends React.Component {
   state = {
@@ -62,7 +63,18 @@ export default class extends React.Component {
           </Menu>
         </Sider>
         <Layout style={{ marginLeft: this.state.collapsed ? 80 : 200 }}>
-          <Header style={{ background: '#fff', padding: 0 }} />
+          <Header style={{ background: '#fff', padding: 0 }}>
+          <Search
+            placeholder="请输入关键字"
+            onSearch={(keyword) => { 
+              this.setState({ title: '搜索', subTitle: ''});
+              router.push('/search', {
+                keyword,
+              });
+            }}
+            style={{ width: 250, marginLeft: 20 }}
+          />
+          </Header>
           <Content style={{ margin: '0 16px', overflow: 'initial' }} >
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item>{this.state.title}</Breadcrumb.Item>
