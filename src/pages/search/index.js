@@ -12,10 +12,10 @@ export default HocPage(class extends React.Component {
     imgData: []
   }
 
-  componentDidMount() {
+  componentWillReceiveProps(nextProps) {
     let tempImgData = TOOLS.getAllImgData();
     tempImgData = tempImgData.filter((str) => {
-      const reg = new RegExp(`${this.props.keyword}`);
+      const reg = new RegExp(`${nextProps.keyword}`);
       return reg.test(str);
     })
     this.setState({
