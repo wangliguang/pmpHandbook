@@ -46,23 +46,29 @@ function objToArray(prefix, obj, fileType) {
   return dataArray;
 }
 
-function getAllImgData() {
+function getAllFileImgData() {
   const allData = ASSETS_DATA.assets;
-  let tempImgData = [];
+  let allImgData = [];
+  let allFileData = [];
   for (const capterName in allData) {
     for (const sectionName in allData[capterName]) {
       for (const type in allData[capterName][sectionName]) {
+        const imgArray = allData[capterName][sectionName][type];
         if(type === 'img') {
-          const imgArray = allData[capterName][sectionName][type];
-          tempImgData = tempImgData.concat(objToArray(`${capterName}/${sectionName}`, imgArray, 'img'));
+          allImgData = allImgData.concat(objToArray(`${capterName}/${sectionName}`, imgArray, 'img'));
+        } else {
+          allFileData = allFileData.concat(objToArray(`${capterName}/${sectionName}`, imgArray, 'file'));
         }
       }
     }
   }
-  return tempImgData;
+  return {
+    allImgData,
+    allFileData
+  };
 }
 
 export default {
   getData,
-  getAllImgData,
+  getAllFileImgData,
 }
