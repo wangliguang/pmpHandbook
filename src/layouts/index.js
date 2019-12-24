@@ -68,9 +68,7 @@ export default class extends React.Component {
             placeholder="请输入关键字"
             onSearch={(keyword) => { 
               this.setState({ title: '搜索', subTitle: ''});
-              router.push('/search', {
-                keyword,
-              });
+              router.push(`/search?keyword=${keyword}`);
             }}
             style={{ width: 250, marginLeft: 20 }}
           />

@@ -46,6 +46,23 @@ function objToArray(prefix, obj, fileType) {
   return dataArray;
 }
 
+function getAllImgData() {
+  const allData = ASSETS_DATA.assets;
+  let tempImgData = [];
+  for (const capterName in allData) {
+    for (const sectionName in allData[capterName]) {
+      for (const type in allData[capterName][sectionName]) {
+        if(type === 'img') {
+          const imgArray = allData[capterName][sectionName][type];
+          tempImgData = tempImgData.concat(objToArray(`${capterName}/${sectionName}`, imgArray, 'img'));
+        }
+      }
+    }
+  }
+  return tempImgData;
+}
+
 export default {
   getData,
+  getAllImgData,
 }

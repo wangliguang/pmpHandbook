@@ -59,6 +59,18 @@ export default class Content extends React.PureComponent {
               />
           </Panel>
           ) : null}
+          <Viewer
+            drag={false}
+            rotatable={false}
+            zoomSpeed={0.5}
+            scalable={false}
+            visible={this.state.visible}
+            onClose={() => this.setState({ visible: false})}
+            onMaskClick={() => this.setState({ visible: false})}
+            images={viewerDataArray}
+            activeIndex={this.state.activeIndex}
+          />
+
         </Collapse>
     )
   }
