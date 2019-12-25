@@ -47,7 +47,7 @@ function objToArray(prefix, obj, fileType) {
 }
 
 function getAllFileImgData() {
-  const allData = ASSETS_DATA.assets;
+  const allData = DATA;
   let allImgData = [];
   let allFileData = [];
   for (const capterName in allData) {
@@ -68,7 +68,24 @@ function getAllFileImgData() {
   };
 }
 
+function getCloudData() {
+  const allData = DATA;
+  
+  const resultArray = [];
+  for (const key in allData['cloud']) {
+    const array = objToArray(`cloud/${key}`,allData['cloud'][key]['file'], 'file');
+    resultArray.push({
+      title: key,
+      array,
+    });
+  }
+  console.log(resultArray);
+  return resultArray;
+}
+
+
 export default {
   getData,
   getAllFileImgData,
+  getCloudData
 }

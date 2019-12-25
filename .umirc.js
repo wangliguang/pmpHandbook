@@ -9,7 +9,7 @@ export default {
         antd: true,
         dva: true,
         dynamicImport: false,
-        title: 'pmpHandbook',
+        title: 'PMP查询手册',
         dll: false,
         routes: {
           exclude: [

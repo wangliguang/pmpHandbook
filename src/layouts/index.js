@@ -63,15 +63,20 @@ export default class extends React.Component {
           </Menu>
         </Sider>
         <Layout style={{ marginLeft: this.state.collapsed ? 80 : 200 }}>
-          <Header style={{ background: '#fff', padding: 0 }}>
-          <Search
-            placeholder="请输入关键字"
-            onSearch={(keyword) => { 
-              this.setState({ title: '搜索', subTitle: ''});
-              router.push(`/search?keyword=${keyword}`);
-            }}
-            style={{ width: 250, marginLeft: 20 }}
-          />
+          <Header style={{ background: '#fff', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <Search
+              placeholder="请输入关键字"
+              onSearch={(keyword) => { 
+                this.setState({ title: '搜索', subTitle: ''});
+                router.push(`/search?keyword=${keyword}`);
+              }}
+              style={{ width: 250, marginLeft: 20 }}
+            />
+            
+            <Button onClick={() => {
+              router.push(`/cloud`);
+            }} style={{ marginRight: 20}}>云盘</Button>
+
           </Header>
           <Content style={{ margin: '0 16px', overflow: 'initial' }} >
             <Breadcrumb style={{ margin: '16px 0' }}>
