@@ -4,6 +4,7 @@ import LAYOUT_DATA from './layout';
 import router from 'umi/router';
 import Link from 'umi/link';
 import STYLE from './index.css';
+import Bmob from "hydrogen-js-sdk";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -17,6 +18,10 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
+    
+    
+    Bmob.initialize("22cb8890c273968f", "753159");
+
     router.replace('/integration/pmp41');
   }
 
