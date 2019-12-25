@@ -5,7 +5,7 @@ import router from 'umi/router';
 import Link from 'umi/link';
 import STYLE from './index.css';
 import Bmob from "hydrogen-js-sdk";
-
+import { uploadFile } from '../tool/uploadFile';
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 const { Search } = Input;
@@ -21,8 +21,15 @@ export default class extends React.Component {
     
     
     Bmob.initialize("22cb8890c273968f", "753159");
+    Bmob.debug(true);
 
     router.replace('/integration/pmp41');
+
+    const fileUploadControl = document.getElementById('profilePhotoFileUpload');
+    fileUploadControl.onchange = () => {
+      const pic = fileUploadControl.files
+      uploadFile(pic[0]);
+    }
   }
 
   onCollapse = collapsed => {
@@ -81,6 +88,8 @@ export default class extends React.Component {
             <Button onClick={() => {
               router.push(`/cloud`);
             }} style={{ marginRight: 20}}>云盘</Button>
+
+            <input type="file" id="profilePhotoFileUpload"  multiple="multiple" />
 
           </Header>
           <Content style={{ margin: '0 16px', overflow: 'initial' }} >
