@@ -21,7 +21,8 @@ export default class extends React.Component {
     Bmob.initialize("22cb8890c273968f", "753159");
     Bmob.debug(true);
 
-    router.replace('/integration/pmp41');
+    router.push('/admin');
+
   }
 
   onCollapse = collapsed => {
