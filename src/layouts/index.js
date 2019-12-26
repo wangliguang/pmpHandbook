@@ -18,18 +18,10 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    
-    
     Bmob.initialize("22cb8890c273968f", "753159");
     Bmob.debug(true);
 
     router.replace('/integration/pmp41');
-
-    const fileUploadControl = document.getElementById('profilePhotoFileUpload');
-    fileUploadControl.onchange = () => {
-      const pic = fileUploadControl.files
-      uploadFile(pic[0]);
-    }
   }
 
   onCollapse = collapsed => {
@@ -85,11 +77,17 @@ export default class extends React.Component {
               style={{ width: 250, marginLeft: 20 }}
             />
             
-            <Button onClick={() => {
-              router.push(`/cloud`);
-            }} style={{ marginRight: 20}}>云盘</Button>
+            <div>
+              <Button onClick={() => {
+                router.push(`/cloud`);
+                this.setState({ title: '云盘', subTitle: ''});
+              }} style={{ marginRight: 20}}>云盘</Button>
 
-            <input type="file" id="profilePhotoFileUpload"  multiple="multiple" />
+              <Button onClick={() => {
+                router.push(`/admin`);
+                this.setState({ title: '后台', subTitle: '', collapsed: !this.state.collapsed });
+              }} style={{ marginRight: 20}}>后台</Button>
+            </div>
 
           </Header>
           <Content style={{ margin: '0 16px', overflow: 'initial' }} >
