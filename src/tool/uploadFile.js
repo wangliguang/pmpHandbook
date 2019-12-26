@@ -1,51 +1,32 @@
-const crypto = require('crypto');
-const date = new Date().toUTCString();
+const SparkMD5 = require('../../sdk/spark-md5');
 
-const key = 'wangliguang';
-const secret = 'niepangg';
-const method = 'PUT';
-const uri = '/';
-function sign(key, secret, method, uri, date, policy=null, md5=null) {
-    const elems = [];
-    [method, uri, date, policy, md5].forEach(item => {
-        if (item != null) {
-            elems.push(item)
-        }
-    })
-    let value = elems.join('&');
-    let auth = hmacsha1(secret, value);
-    return `UPYUN ${key}:${auth}`;
-}
-
-function hmacsha1(secret, value) {
-    return crypto.createHmac('sha1', secret).update(value, 'utf8').digest().toString('base64');
-}
-
-function MD5(value) {
-  return crypto.createHash('md5').update(value).digest('hex');
-}
-
-function uploadFile(file) {
-  const token = `${sign(key, MD5(secret), method, uri, date)}`;
-  console.log(token);
-  const data = new FormData();
-  data.append(file.name, file);
-  fetch('http://v0.api.upyun.com/pmphandbook', {
-    method: 'POST',
-    mode: 'cors',
-    headers: {
-      "Authorization": token,
-      "Content-Length": file.size,
-      "Origin": 'http://localhost:8000'
-    },
-    body: data,
-  }).then((res) => {
-    console.log('====', res);
-  }).catch((e) => {
-    console.log('error', e);
-  });
+function uploadFile(files) {
+  const bucket_name="pmphandbook";              //服务名称
+  const opename="wangliguang";                      //操作员账号
+  const opepass="5d1PKkLJtEuw23gQLjY9FYir0Nj2oEIK";                      //操作员密码
+  const save_as=`${new Date().getTime()}`;                    //保存路径
+  const acc_point="http://v0.api.upyun.com/";
+  const date=(new Date()).toUTCString();
+  const file=files[0];
+  const sign=SparkMD5.hash("PUT&/"+encodeURI(bucket_name+save_as)+"&"+date+"&"+file.size+"&"+SparkMD5.hash(opepass));
+  // const infoHtml = "文件名称:" + file.name + "";
+  // infoHtml+= "文件大小:" + file.size + "";
+  // infoHtml+= "文件类型:" + file.type + "";
+  
+  var xhr = new XMLHttpRequest();
+  xhr.onload=function(event){
+    if(xhr.status==200){
+      alert("上传成功");
+      console.log(xhr);
+    }else{alert("上传失败,代码:"+JSON.parse(xhr.responseText).code);}
+  };
+  xhr.open('PUT', acc_point+encodeURI(bucket_name+save_as), true);
+  xhr.setRequestHeader("Authorization","UpYun "+opename+":"+sign);
+  xhr.setRequestHeader("X-Date",date);
+  xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+  xhr.send(file);
 }
 
 export {
-  uploadFile,
+  uploadFile
 }
