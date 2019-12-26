@@ -1,6 +1,7 @@
 import React from 'react';
-import { Select, Radio, Upload, Icon } from 'antd';
-import { uploadFile } from '../../tool/uploadFile';
+import { Select, Radio, Icon } from 'antd';
+import Upload from '../../component/upload';
+import STYLE from './index.css';
 
 const { Option } = Select;
 const provinceData = ['Zhejiang', 'Jiangsu'];
@@ -16,6 +17,7 @@ export default class extends React.Component {
     secondCity: cityData[provinceData[0]][0],
     resourceType: 'image',
     fileList: [],
+    imgs: [],
   };
 
   handleChangeResourceType = (e) => {
@@ -24,18 +26,10 @@ export default class extends React.Component {
     });
   }
 
-  componentDidMount() {
-    const fileUploadControl = document.getElementById('profilePhotoFileUpload');
-    fileUploadControl.onchange = () => {
-      const pic = fileUploadControl.files
-      uploadFile(pic);
-    }
-
-  }
-
-  handleChange = ({ fileList }) => {
-    uploadFile(fileList);
-    this.setState({ fileList });
+  handleOnChange = (urls) => {
+    this.setState({
+      imgs: urls,
+    });
   }
 
   render() {
@@ -44,10 +38,7 @@ export default class extends React.Component {
         {this.renderSelectCapterSection()}
         {this.renderSelectFileType()}
         {this.renderUploadImage()}
-        {this.renderUploadFile()}
-        <input type="file" id="profilePhotoFileUpload"  multiple="multiple" />
-
-        
+    
       </div>
     )
   }
@@ -56,24 +47,14 @@ export default class extends React.Component {
     return (
       <div style={{ marginTop: 30 }}>
         <span>图片上传：</span>
-        <Upload
-          listType="picture-card"
-          fileList={this.state.fileList}
-          onChange={this.handleChange}
-        >
-          <div>
-            <Icon type="plus" />
-            <div className="ant-upload-text">Upload</div>
-          </div>
-        </Upload>
-      </div>
-    );
-  }
-
-  renderUploadFile() {
-    return (
-      <div style={{ marginTop: 30 }}>
-        <span>文件上传：</span>
+        <div>
+          {this.state.imgs.map((url) => (
+            <div class={STYLE.img}>
+              <img src={url} style={{ width: 100, height: 100}}/>
+            </div>
+          ))}
+        </div>
+        <Upload onChange={this.handleOnChange}/>
       </div>
     );
   }
