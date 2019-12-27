@@ -5,8 +5,8 @@ import TagGroup from '../../component/tagGroup';
 import STYLE from './index.css';
 
 const { Option } = Select;
-const provinceData = ['Zhejiang', 'Jiangsu'];
-const cityData = {
+const capterData = ['Zhejiang', 'Jiangsu'];
+const sectionData = {
   Zhejiang: ['Hangzhou', 'Ningbo', 'Wenzhou'],
   Jiangsu: ['Nanjing', 'Suzhou', 'Zhenjiang'],
 };
@@ -14,13 +14,26 @@ const cityData = {
 export default class extends React.Component {
 
   state = {
-    cities: cityData[provinceData[0]],
-    secondCity: cityData[provinceData[0]][0],
+    sections: sectionData[capterData[0]],
+    secondSection: sectionData[capterData[0]][0],
     resourceType: 'image',
     fileList: [],
     imgs: [],
     files: [],
     submitData: [],
+  };
+  
+  handleCapterChange = value => {
+    this.setState({
+      sections: sectionData[value],
+      secondSection: sectionData[value][0],
+    });
+  };
+
+  handleSecondSectionChange = value => {
+    this.setState({
+      secondSection: value,
+    });
   };
 
   handleChangeResourceType = (e) => {
@@ -102,20 +115,20 @@ export default class extends React.Component {
       <div>
         <span>选择章节：</span>
         <Select
-          defaultValue={provinceData[0]}
+          defaultValue={capterData[0]}
           style={{ width: 120, height: 40 }}
-          onChange={this.handleProvinceChange}
+          onChange={this.handleCapterChange}
         >
-          {provinceData.map(province => (
-            <Option key={province}>{province}</Option>
+          {capterData.map(capter => (
+            <Option key={capter}>{capter}</Option>
           ))}
         </Select>
         <Select
           style={{ width: 120, height: 40, marginLeft: 20 }}
-          value={this.state.secondCity}
-          onChange={this.onSecondCityChange}
+          value={this.state.secondSection}
+          onChange={this.handleSecondSectionChange}
         >
-          {this.state.cities.map(city => (
+          {this.state.sections.map(city => (
             <Option key={city}>{city}</Option>
           ))}
         </Select>
