@@ -24,7 +24,7 @@ export default class extends React.PureComponent {
 
   render() {
     return (
-      <div className={STYLE.wraper}>
+      <div className={STYLE.wraper} style={this.props.style}>
         <input className={STYLE.input} 
           name="file" type="file" 
           id="profilePhotoFileUpload"  multiple="multiple" 

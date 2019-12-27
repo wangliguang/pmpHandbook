@@ -1,7 +1,6 @@
 const SparkMD5 = require('../../sdk/spark-md5');
 
 function uploadFile(file) {
-  console.log(file);
   const bucket_name="pmphandbook";              //服务名称
   const opename="wangliguang";                      //操作员账号
   const opepass="qMdA6WhtmEdBxyr8vlw2lkRbqJUqNUrG";                      //操作员密码

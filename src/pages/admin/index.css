@@ -6,4 +6,11 @@
   border: 1px solid #d9d9d9;
   box-sizing: border-box;
   border-radius: 4px;
+  margin-left: 20px;
+}
+
+.tagGroup {
+  margin-left: 5px;
+  width: 110px;
+  height: 110px;
 }

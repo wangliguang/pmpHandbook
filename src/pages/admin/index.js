@@ -1,6 +1,7 @@
 import React from 'react';
-import { Select, Radio, Icon } from 'antd';
+import { Select, Radio, Icon, Button } from 'antd';
 import Upload from '../../component/upload';
+import TagGroup from '../../component/tagGroup';
 import STYLE from './index.css';
 
 const { Option } = Select;
@@ -18,6 +19,8 @@ export default class extends React.Component {
     resourceType: 'image',
     fileList: [],
     imgs: [],
+    files: [],
+    submitData: [],
   };
 
   handleChangeResourceType = (e) => {
@@ -32,13 +35,33 @@ export default class extends React.Component {
     });
   }
 
+  handleTagChange = (url, tags) => {
+    let tmpSubmitData = this.state.submitData;
+
+    tmpSubmitData = tmpSubmitData.filter((item) => {
+      return item.url !== url
+    });
+
+    tmpSubmitData.push({
+      url,
+      tags,
+    });
+    this.setState({
+      submitData: tmpSubmitData
+    });
+  }
+
+  handleSubmit = () => {
+
+  }
+
   render() {
     return (
       <div style={{ padding: 20, minHeight: 500, background: "white", display: "flex", justifyContent: 'flex-start', flexDirection: 'column'}}>
         {this.renderSelectCapterSection()}
         {this.renderSelectFileType()}
         {this.renderUploadImage()}
-    
+        <Button style={{ marginTop: 100, width: 150, marginLeft: 150 }} onClick={this.handleSubmit} type="primary">提交</Button>
       </div>
     )
   }
@@ -47,14 +70,17 @@ export default class extends React.Component {
     return (
       <div style={{ marginTop: 30 }}>
         <span>图片上传：</span>
-        <div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 20 }}>
           {this.state.imgs.map((url) => (
-            <div class={STYLE.img}>
-              <img src={url} style={{ width: 100, height: 100}}/>
+            <div style={{ display: "flex", flexDirection: 'row' }} key={`${url}`}>
+              <div className={STYLE.img}>
+                <img src={url} style={{ width: 100, height: 100 }}/>
+              </div>  
+              <TagGroup  onChange={(tags) => this.handleTagChange(url, tags)} style={{ marginLeft: 5, width: 110, height: 110 }}/> 
             </div>
           ))}
+          <Upload onChange={this.handleOnChange} style={{ marginLeft: 20 }} />
         </div>
-        <Upload onChange={this.handleOnChange}/>
       </div>
     );
   }
