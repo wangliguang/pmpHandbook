@@ -7,7 +7,7 @@
     "lint": "eslint --ext .js src mock tests",
     "precommit": "pwd",
     "countResource": "node ./script/CountResource.js",
-    "server": "git fetch && git rebase && npm run build && git checkout . && cd ./dist && http-server -p 80"
+    "server": "git fetch && git rebase && npm install && npm run build && git checkout . && cd ./dist && http-server -p 80"
   },
   "dependencies": {
     "antd": "^3.19.5",
