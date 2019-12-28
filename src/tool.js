@@ -87,5 +87,6 @@ function getCloudData() {
 export default {
   getData,
   getAllFileImgData,
-  getCloudData
+  getCloudData,
+  getCurrenChapterSectionName
 }

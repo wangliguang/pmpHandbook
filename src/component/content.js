@@ -21,7 +21,7 @@ export default class Content extends React.PureComponent {
   render() {
     const viewerDataArray = this.props.imgs.map((img) => {
       return {
-        src: `http://${document.location.host}${img}`,
+        src: img,
       };
     });
 
@@ -53,7 +53,7 @@ export default class Content extends React.PureComponent {
               dataSource={this.props.files}
               renderItem={item => (
                 <List.Item>
-                  <a target="view_window" href={`http://${document.location.host}${item}`}>{item.split('/')[2].split('.')[0]}</a>
+                  <a target="view_window" href={item}>{item.split('/')[2].split('.')[0]}</a>
                 </List.Item>
               )}
               />

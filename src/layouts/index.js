@@ -10,6 +10,9 @@ const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 const { Search } = Input;
 
+Bmob.initialize("22cb8890c273968f", "753159");
+Bmob.debug(true);
+
 export default class extends React.Component {
   state = {
     collapsed: false,
@@ -18,11 +21,7 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    Bmob.initialize("22cb8890c273968f", "753159");
-    Bmob.debug(true);
-
-    router.push('/admin');
-
+    router.replace('/integration/pmp41?chapter=项目整合管理&section=制定项目章程');
   }
 
   onCollapse = collapsed => {

@@ -3,25 +3,25 @@
     "title": "四：项目整合管理",
     "subTitles": [
       {
-        "title": "4.1：制定项目章程", "path": "/integration/pmp41"
+        "title": "4.1：制定项目章程", "path": "/integration/pmp41?chapter=项目整合管理&section=制定项目章程"
       },
       {
-        "title": "4.2：制定项目管理计划", "path": "/integration/pmp42"
+      "title": "4.2：制定项目管理计划", "path": "/integration/pmp42?chapter=项目整合管理&section=制定项目管理计划"
       },
       {
-        "title": "4.3：指导和管理项目工作", "path": "/integration/pmp43"
+        "title": "4.3：指导和管理项目工作", "path": "/integration/pmp43?chapter=项目整合管理&section=指导和管理项目工作"
       },
       {
-        "title": "4.4：管理项目知识", "path": "/integration/pmp44"
+        "title": "4.4：管理项目知识", "path": "/integration/pmp44?chapter=项目整合管理&section=管理项目知识"
       },
       {
-        "title": "4.5：监控项目工作", "path": "/integration/pmp45"
+        "title": "4.5：监控项目工作", "path": "/integration/pmp45?chapter=项目整合管理&section=监控项目工作"
       },
       {
-        "title": "4.6：实施整体变更控制", "path": "/integration/pmp46"
+        "title": "4.6：实施整体变更控制", "path": "/integration/pmp46?chapter=项目整合管理&section=实施整体变更控制"
       },
       {
-        "title": "4.7：结束项目或阶段", "path": "/integration/pmp47"
+        "title": "4.7：结束项目或阶段", "path": "/integration/pmp47?chapter=项目整合管理&section=结束项目或阶段"
       }
     ]
   },
@@ -29,22 +29,22 @@
     "title": "五：项目范围管理",
     "subTitles": [
       {
-        "title": "5.1：规划范围管理", "path": "/scope/pmp51"
+        "title": "5.1：规划范围管理", "path": "/scope/pmp51?chapter=项目范围管理&section=规划范围管理"
       },
       {
-        "title": "5.2：收集需求", "path": "/scope/pmp52"
+        "title": "5.2：收集需求", "path": "/scope/pmp52?chapter=项目范围管理&section=收集需求"
       },
       {
-        "title": "5.3：定义范围", "path": "/scope/pmp53"
+        "title": "5.3：定义范围", "path": "/scope/pmp53?chapter=项目范围管理&section=定义范围"
       },
       {
-        "title": "5.4：创建WBS", "path": "/scope/pmp54"
+        "title": "5.4：创建WBS", "path": "/scope/pmp54?chapter=项目范围管理&section=创建WBS"
       },
       {
-        "title": "5.5：确认范围", "path": "/scope/pmp55"
+        "title": "5.5：确认范围", "path": "/scope/pmp55?chapter=项目范围管理&section=确认范围"
       },
       {
-        "title": "5.6：控制范围", "path": "/scope/pmp56"
+        "title": "5.6：控制范围", "path": "/scope/pmp56?chapter=项目范围管理&section=控制范围"
       }
     ]
   },
@@ -52,22 +52,22 @@
     "title": "六：项目进度管理",
     "subTitles": [
       {
-        "title": "6.1：规划进度管理", "path": "/schedule/pmp61"
+        "title": "6.1：规划进度管理", "path": "/schedule/pmp61?chapter=项目进度管理&section=规划进度管理"
       },
       {
-        "title": "6.2：定义活动", "path": "/schedule/pmp62"
+        "title": "6.2：定义活动", "path": "/schedule/pmp62?chapter=项目进度管理&section=定义活动"
       },
       {
-        "title": "6.3：排列活动顺序", "path": "/schedule/pmp63"
+        "title": "6.3：排列活动顺序", "path": "/schedule/pmp63?chapter=项目进度管理&section=排列活动顺序"
       },
       {
-        "title": "6.4：估算活动资源持续时间", "path": "/schedule/pmp64"
+        "title": "6.4：估算活动资源持续时间", "path": "/schedule/pmp64?chapter=项目进度管理&section=估算活动资源持续时间"
       },
       {
-        "title": "6.5：制定进度计划", "path": "/schedule/pmp65"
+        "title": "6.5：制定进度计划", "path": "/schedule/pmp65?chapter=项目进度管理&section=制定进度计划"
       },
       {
-        "title": "6.6：控制进度", "path": "/schedule/pmp66"
+        "title": "6.6：控制进度", "path": "/schedule/pmp66?chapter=项目进度管理&section=控制进度"
       }
     ]
   },
@@ -75,16 +75,16 @@
     "title": "七：项目成本管理",
     "subTitles": [
       {
-        "title": "7.1：规划成本管理", "path": "/cost/pmp71"
+        "title": "7.1：规划成本管理", "path": "/cost/pmp71?chapter=项目成本管理&section=规划成本管理"
       },
       {
-        "title": "7.2：估算成本", "path": "/cost/pmp72"
+        "title": "7.2：估算成本", "path": "/cost/pmp72?chapter=项目成本管理&section=估算成本"
       },
       {
-        "title": "7.3：制定预算", "path": "/cost/pmp73"
+        "title": "7.3：制定预算", "path": "/cost/pmp73?chapter=项目成本管理&section=制定预算"
       },
       {
-        "title": "7.4：控制成本", "path": "/cost/pmp74"
+        "title": "7.4：控制成本", "path": "/cost/pmp74?chapter=项目成本管理&section=控制成本"
       }
     ]
   },
@@ -92,13 +92,13 @@
     "title": "八：项目质量管理",
     "subTitles": [
       {
-        "title": "8.1：规划质量管理", "path": "/quality/pmp81"
+        "title": "8.1：规划质量管理", "path": "/quality/pmp81?chapter=项目质量管理&section=规划质量管理"
       },
       {
-        "title": "8.2：管理质量", "path": "/quality/pmp82"
+        "title": "8.2：管理质量", "path": "/quality/pmp82?chapter=项目质量管理&section=管理质量"
       },
       {
-        "title": "8.3：控制质量", "path": "/quality/pmp83"
+        "title": "8.3：控制质量", "path": "/quality/pmp83?chapter=项目质量管理&section=控制质量"
       }
     ]
   },
@@ -106,22 +106,22 @@
     "title": "九：项目资源管理",
     "subTitles": [
       {
-        "title": "9.1：规划资源管理", "path": "/resource/pmp91"
+        "title": "9.1：规划资源管理", "path": "/resource/pmp91?chapter=项目资源管理&section=规划资源管理"
       },
       {
-        "title": "9.2：估算活动资源", "path": "/resource/pmp92"
+        "title": "9.2：估算活动资源", "path": "/resource/pmp92?chapter=项目资源管理&section=估算活动资源"
       },
       {
-        "title": "9.3：获取资源", "path": "/resource/pmp93"
+        "title": "9.3：获取资源", "path": "/resource/pmp93?chapter=项目资源管理&section=获取资源"
       },
       {
-        "title": "9.4：建设团队", "path": "/resource/pmp94"
+        "title": "9.4：建设团队", "path": "/resource/pmp94?chapter=项目资源管理&section=建设团队"
       },
       {
-        "title": "9.5：管理团队", "path": "/resource/pmp95"
+        "title": "9.5：管理团队", "path": "/resource/pmp95?chapter=项目资源管理&section=管理团队"
       },
       {
-        "title": "9.6：控制资源", "path": "/resource/pmp96"
+        "title": "9.6：控制资源", "path": "/resource/pmp96?chapter=项目资源管理&section=控制资源"
       }
     ]
   },
@@ -129,13 +129,13 @@
     "title": "十：项目沟通管理",
     "subTitles": [
       {
-        "title": "10.1：规划沟通管理", "path": "/communicate/pmp101"
+        "title": "10.1：规划沟通管理", "path": "/communicate/pmp101?chapter=项目沟通管理&section=规划沟通管理"
       },
       {
-        "title": "10.2：管理沟通", "path": "/communicate/pmp102"
+        "title": "10.2：管理沟通", "path": "/communicate/pmp102?chapter=项目沟通管理&section=管理沟通"
       },
       {
-        "title": "10.3：监督沟通", "path": "/communicate/pmp103"
+        "title": "10.3：监督沟通", "path": "/communicate/pmp103?chapter=项目沟通管理&section=监督沟通"
       }
     ]
   },
@@ -143,25 +143,25 @@
     "title": "十一：项目风险管理",
     "subTitles": [
       {
-        "title": "11.1：规划风险管理", "path": "/risk/pmp111"
+        "title": "11.1：规划风险管理", "path": "/risk/pmp111?chapter=规划风险管理&section=规划风险管理"
       },
       {
-        "title": "11.2：识别风险", "path": "/risk/pmp112"
+        "title": "11.2：识别风险", "path": "/risk/pmp112?chapter=规划风险管理&section=识别风险"
       },
       {
-        "title": "11.3：实施定性风险分析", "path": "/risk/pmp113"
+        "title": "11.3：实施定性风险分析", "path": "/risk/pmp113?chapter=规划风险管理&section=实施定性风险分析"
       },
       {
-        "title": "11.4：实施定量风险分析", "path": "/risk/pmp114"
+        "title": "11.4：实施定量风险分析", "path": "/risk/pmp114?chapter=规划风险管理&section=实施定量风险分析"
       },
       {
-        "title": "11.5：规划风险应对", "path": "/risk/pmp115"
+        "title": "11.5：规划风险应对", "path": "/risk/pmp115?chapter=规划风险管理&section=规划风险应对"
       },
       {
-        "title": "11.6：实施风险应对", "path": "/risk/pmp116"
+        "title": "11.6：实施风险应对", "path": "/risk/pmp116?chapter=规划风险管理&section=实施风险应对"
       },
       {
-        "title": "11.7：监督风险", "path": "/risk/pmp117"
+        "title": "11.7：监督风险", "path": "/risk/pmp117?chapter=规划风险管理&section=监督风险"
       }
     ]
   },
@@ -169,13 +169,13 @@
     "title": "十二：项目采购管理",
     "subTitles": [
       {
-        "title": "12.1：规划采购管理", "path": "/purchase/pmp121"
+        "title": "12.1：规划采购管理", "path": "/purchase/pmp121?chapter=项目采购管理&section=规划采购管理"
       },
       {
-        "title": "12.2：实施采购", "path": "/purchase/pmp122"
+        "title": "12.2：实施采购", "path": "/purchase/pmp122?chapter=项目采购管理&section=实施采购"
       },
       {
-        "title": "12.3：控制采购", "path": "/purchase/pmp123"
+        "title": "12.3：控制采购", "path": "/purchase/pmp123?chapter=项目采购管理&section=控制采购"
       }
     ]
   },
@@ -183,16 +183,16 @@
     "title": "十三：项目相关方管理",
     "subTitles": [
       {
-        "title": "13.1：识别相关方", "path": "/relevantParties/pmp131"
+        "title": "13.1：识别相关方", "path": "/relevantParties/pmp131?chapter=项目相关方管理&section=识别相关方"
       },
       {
-        "title": "13.2：规划相关方参与", "path": "/relevantParties/pmp132"
+        "title": "13.2：规划相关方参与", "path": "/relevantParties/pmp132?chapter=项目相关方管理&section=规划相关方参与"
       },
       {
-        "title": "13.3：管理相关方参与", "path": "/relevantParties/pmp133"
+        "title": "13.3：管理相关方参与", "path": "/relevantParties/pmp133?chapter=项目相关方管理&section=管理相关方参与"
       },
       {
-        "title": "13.4：监督相关方参与", "path": "/relevantParties/pmp133"
+        "title": "13.4：监督相关方参与", "path": "/relevantParties/pmp133?chapter=项目相关方管理&section=监督相关方参与"
       }
     ]
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import Content from '../component/content';
-import TOOLS from '../tool';
+import Bmob from "hydrogen-js-sdk";
 
 export default function (Component) {
   return class extends React.Component {
@@ -10,19 +10,41 @@ export default function (Component) {
       fileData: [],
     }
 
-    componentDidMount() {
-      const data = TOOLS.getData();
-      this.setState({
-        imgData: data.imgArray,
-        fileData: data.fileArray,
-      });
-
-      // 插入script标签，用于做埋点统计
+    addMonitor = () => {
+      // 插入script标签，用于做监控统计
       var body = document.getElementsByTagName('body')[0];
       var script = document.createElement('script');
       script.type= 'text/javascript';
       script.src= 'https://v1.cnzz.com/z_stat.php?id=1278286627&web_id=1278286627';
       body.appendChild(script);
+    }
+
+    componentDidMount() {
+      this.addMonitor();
+
+    
+      const imgData = [];
+      const fileData = [];
+
+      const params = this.props.location.query;
+      const query = Bmob.Query("t_resource");
+      const query1 = query.equalTo("chapter", '==', params.chapter || '');
+      const query2 = query.equalTo("section", '==', params.section || '');
+
+      query.and(query1, query2);
+      query.find().then((res) => {
+        res.forEach(item => {
+          if (item.type === 'file') {
+            fileData.push(item.url);
+            return;
+          }
+          imgData.push(item.url);
+        });
+        this.setState({
+          imgData,
+          fileData,
+        });
+      });
     } 
 
     render() {
