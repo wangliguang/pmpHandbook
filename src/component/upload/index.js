@@ -14,10 +14,11 @@ export default class extends React.PureComponent {
         return uploadFile(file);
       });
 
-      Promise.all(allFilePromise).then((urls) => {
-        this.props.onChange && this.props.onChange(urls);
+      Promise.all(allFilePromise).then((files) => {
+        console.log('文件上传成功', files);
+        this.props.onChange && this.props.onChange(files);
       }).catch((e) => {
-        console.error('上传图片失败', e);
+        console.error('上传文件失败', e);
       });
     }
   }

@@ -56,8 +56,6 @@ export default class extends React.Component {
     sections: sectionData[capterData[0]],
     secondSection: sectionData[capterData[0]][0],
     resourceType: 'image',
-    fileList: [],
-    imgs: [],
     files: [],
     submitData: [],
   };
@@ -81,9 +79,9 @@ export default class extends React.Component {
     });
   }
 
-  handleOnChange = (urls) => {
+  handleOnChange = (files) => {
     this.setState({
-      imgs: urls,
+      files,
     });
   }
 
@@ -113,7 +111,7 @@ export default class extends React.Component {
         {this.renderSelectCapterSection()}
         {this.renderSelectFileType()}
         {this.renderUploadImage()}
-        <Button style={{ marginTop: 100, width: 150, marginLeft: 150 }} onClick={this.handleSubmit} type="primary">提交</Button>
+        <Button style={{ marginTop: 100, width: 150, marginLeft: 150, marginBottom: 50 }} onClick={this.handleSubmit} type="primary">提交</Button>
       </div>
     )
   }
@@ -122,16 +120,20 @@ export default class extends React.Component {
     return (
       <div style={{ marginTop: 30 }}>
         <span>图片上传：</span>
-        <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 20 }}>
-          {this.state.imgs.map((url) => (
-            <div style={{ display: "flex", flexDirection: 'row' }} key={`${url}`}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', }}>
+          {this.state.files.map((file) => (
+            <div style={{ display: "flex", flexDirection: 'row' }} key={`${file.url}`}>
               <div className={STYLE.img}>
-                <img src={url} style={{ width: 100, height: 100 }}/>
+                {file.type === 'image' ? (
+                  <img src={file.url} style={{ width: 100, height: 100 }}/>
+                ) : (
+                  <span>{file.name}</span>
+                )}
               </div>  
-              <TagGroup  onChange={(tags) => this.handleTagChange(url, tags)} style={{ marginLeft: 5, width: 110, height: 110 }}/> 
+              <TagGroup onChange={(tags) => this.handleTagChange(file.url, tags)} style={{ marginLeft: 5, width: 110, height: 110, marginTop: 20 }}/> 
             </div>
           ))}
-          <Upload onChange={this.handleOnChange} style={{ marginLeft: 20 }} />
+          <Upload onChange={this.handleOnChange} style={{ marginLeft: 20, marginTop: 20 }} />
         </div>
       </div>
     );
@@ -155,7 +157,7 @@ export default class extends React.Component {
         <span>选择章节：</span>
         <Select
           defaultValue={capterData[0]}
-          style={{ width: 120, height: 40 }}
+          style={{ width: 150, height: 40 }}
           onChange={this.handleCapterChange}
         >
           {capterData.map(capter => (
@@ -163,7 +165,7 @@ export default class extends React.Component {
           ))}
         </Select>
         <Select
-          style={{ width: 120, height: 40, marginLeft: 20 }}
+          style={{ width: 150, height: 40, marginLeft: 20 }}
           value={this.state.secondSection}
           onChange={this.handleSecondSectionChange}
         >

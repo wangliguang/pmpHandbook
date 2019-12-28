@@ -50,7 +50,7 @@ export default class extends React.Component {
   render() {
     return (
       <Layout style={{ minHeight: '100vh' }}>
-        <Sider className={STYLE.sider} collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} breakpoint="lg">
+        <Sider width={250} className={STYLE.sider} collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} breakpoint="lg">
           <div className="logo" />
           <Menu theme="dark" defaultOpenKeys={['四：项目整合管理']} defaultSelectedKeys={['4.1：制定项目章程']} mode="inline">
             {LAYOUT_DATA.map((item) => (
@@ -67,7 +67,7 @@ export default class extends React.Component {
             ))}
           </Menu>
         </Sider>
-        <Layout style={{ marginLeft: this.state.collapsed ? 80 : 200 }}>
+        <Layout style={{ marginLeft: this.state.collapsed ? 80 : 250 }}>
           <Header style={{ background: '#fff', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <Search
               placeholder="请输入关键字"

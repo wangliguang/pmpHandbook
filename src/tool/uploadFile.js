@@ -8,12 +8,15 @@ function uploadFile(file) {
   const acc_point="http://v0.api.upyun.com/";
   const date=(new Date()).toUTCString();
 	const	sign=SparkMD5.hash("PUT&/"+encodeURI(bucket_name+save_as)+"&"+date+"&"+file.size+"&"+SparkMD5.hash(opepass));
-
   return new Promise((resolve, reject) => {
     var xhr = new XMLHttpRequest();
     xhr.onload=function(event){
       if(xhr.status==200){
-        resolve(`http://pmphandbook.test.upcdn.net${save_as}`);
+        resolve({
+          url: `http://pmphandbook.test.upcdn.net${save_as}`,
+          name: file.name,
+          type: file.type.indexOf('image') !== -1 ? 'image' : 'file',
+        });
       }else{
         reject('上传失败：', JSON.parse(xhr.responseText).code);
       }
