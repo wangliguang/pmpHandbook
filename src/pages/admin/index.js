@@ -110,18 +110,21 @@ export default class extends React.Component {
       return;
     }
 
-    console.log('this.state.submitData', this.state.submitData);
+    let isHasTags = true;
     for (const item of this.state.submitData) {
       if (item.tags.length === 0) {
-        Modal.warning({
-          title: '请给文件打标签'
-        });
+        isHasTags = false;
         break;
       }
     }
-    return;
 
-    let isHasTag = true;
+    if (!isHasTags) {
+      Modal.warning({
+        title: '请给文件打标签'
+      });
+      return;
+    }
+
     const requestPromises = this.state.submitData.map((item) => {
       const query = Bmob.Query('t_resource');
       query.set('chapter', this.state.firstChapter);
@@ -132,13 +135,6 @@ export default class extends React.Component {
       query.set("name", item.name);
       return query.save()
     });
-
-    if (!isHasTag) {
-      Modal.error({
-        title: '请给遗留的文件打标签'
-      });
-      return;
-    }
 
     Promise.all(requestPromises).then((res) => {
       Modal.success({
