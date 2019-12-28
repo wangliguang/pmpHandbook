@@ -35,7 +35,10 @@ export default function (Component) {
       query.find().then((res) => {
         res.forEach(item => {
           if (item.type === 'file') {
-            fileData.push(item.url);
+            fileData.push({
+              url: item.url,
+              name: item.name
+            });
             return;
           }
           imgData.push(item.url);

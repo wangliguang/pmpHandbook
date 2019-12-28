@@ -53,7 +53,7 @@ export default class Content extends React.PureComponent {
               dataSource={this.props.files}
               renderItem={item => (
                 <List.Item>
-                  <a target="view_window" href={item}>{item.split('/')[2].split('.')[0]}</a>
+                  <a target="view_window" href={item.url}>{item.name}</a>
                 </List.Item>
               )}
               />

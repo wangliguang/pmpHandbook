@@ -143,25 +143,25 @@
     "title": "十一：项目风险管理",
     "subTitles": [
       {
-        "title": "11.1：规划风险管理", "path": "/risk/pmp111?chapter=规划风险管理&section=规划风险管理"
+        "title": "11.1：规划风险管理", "path": "/risk/pmp111?chapter=项目风险管理&section=规划风险管理"
       },
       {
-        "title": "11.2：识别风险", "path": "/risk/pmp112?chapter=规划风险管理&section=识别风险"
+        "title": "11.2：识别风险", "path": "/risk/pmp112?chapter=项目风险管理&section=识别风险"
       },
       {
-        "title": "11.3：实施定性风险分析", "path": "/risk/pmp113?chapter=规划风险管理&section=实施定性风险分析"
+        "title": "11.3：实施定性风险分析", "path": "/risk/pmp113?chapter=项目风险管理&section=实施定性风险分析"
       },
       {
-        "title": "11.4：实施定量风险分析", "path": "/risk/pmp114?chapter=规划风险管理&section=实施定量风险分析"
+        "title": "11.4：实施定量风险分析", "path": "/risk/pmp114?chapter=项目风险管理&section=实施定量风险分析"
       },
       {
-        "title": "11.5：规划风险应对", "path": "/risk/pmp115?chapter=规划风险管理&section=规划风险应对"
+        "title": "11.5：规划风险应对", "path": "/risk/pmp115?chapter=项目风险管理&section=规划风险应对"
       },
       {
-        "title": "11.6：实施风险应对", "path": "/risk/pmp116?chapter=规划风险管理&section=实施风险应对"
+        "title": "11.6：实施风险应对", "path": "/risk/pmp116?chapter=项目风险管理&section=实施风险应对"
       },
       {
-        "title": "11.7：监督风险", "path": "/risk/pmp117?chapter=规划风险管理&section=监督风险"
+        "title": "11.7：监督风险", "path": "/risk/pmp117?chapter=项目风险管理&section=监督风险"
       }
     ]
   },
