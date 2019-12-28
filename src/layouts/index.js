@@ -5,6 +5,7 @@ import router from 'umi/router';
 import Link from 'umi/link';
 import STYLE from './index.css';
 import Bmob from "hydrogen-js-sdk";
+import { getCookie } from '../tool/cookie';
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 const { Search } = Input;
@@ -27,6 +28,7 @@ export default class extends React.Component {
     this.setState({ collapsed });
   };
 
+
   handleMenuItemClick = (item) => {
     let title = '';
     for (const key in LAYOUT_DATA) {
@@ -46,6 +48,7 @@ export default class extends React.Component {
   } 
 
   render() {
+    console.log(getCookie('role'));
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider width={250} className={STYLE.sider} collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} breakpoint="lg">
@@ -82,10 +85,21 @@ export default class extends React.Component {
                 this.setState({ title: '云盘', subTitle: ''});
               }} style={{ marginRight: 20}}>云盘</Button>
 
+              {getCookie('role') === '1' && (
+                <Button onClick={() => {
+                  router.push(`/admin`);
+                  this.setState({ title: '后台', subTitle: '', collapsed: true});
+                }} style={{ marginRight: 20}}>后台</Button>
+              )}
+
               <Button onClick={() => {
-                router.push(`/admin`);
-                this.setState({ title: '后台', subTitle: '', collapsed: !this.state.collapsed });
-              }} style={{ marginRight: 20}}>后台</Button>
+                if (getCookie('toekn')) return;
+                 router.push(`/login`);
+                this.setState({ title: '登录', subTitle: '', collapsed: true });
+              }} style={{ marginRight: 20}}>
+                {getCookie('token') ? `你好，${getCookie('username')}` : '登录'}
+              </Button>
+
             </div>
 
           </Header>
