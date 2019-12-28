@@ -137,7 +137,7 @@ export default class extends React.Component {
       const query = Bmob.Query('t_resource');
       query.set('chapter', this.state.firstChapter);
       query.set('section', this.state.secondSection);
-      query.set("tags", item.tags);
+      query.set("tags", JSON.stringify(item.tags));
       query.set("type", item.type);
       query.set("url", item.url);
       query.set("name", item.name);
