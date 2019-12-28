@@ -113,7 +113,15 @@ export default class extends React.Component {
 
   handleSubmit = () => {
 
-    if (this.state.firstChapter === '-请选择章-' || this.state.secondSection === '-请选择节-') {
+    if (this.state.tableName === 't_cloud' && this.state.cloudDirName === '-请选择-') {
+      Modal.warning({
+        title: '请选择云盘的目录'
+      });
+      return 
+    }
+
+    if (this.state.tableName === 't_resource' && 
+    (this.state.firstChapter === '-请选择章-' || this.state.secondSection === '-请选择节-')) {
       Modal.warning({
         title: '请选择要提交的章和节'
       });
@@ -142,7 +150,17 @@ export default class extends React.Component {
       return;
     }
 
+    
+
     const requestPromises = this.state.submitData.map((item) => {
+      if (this.state.tableName === 't_cloud') {
+        const query = Bmob.Query('t_cloud');
+        query.set("tags", JSON.stringify(item.tags));
+        query.set("url", item.url);
+        query.set("name", item.name);
+        query.set("dir", this.state.cloudDirName);
+        return query.save()
+      }
       const query = Bmob.Query('t_resource');
       query.set('chapter', this.state.firstChapter);
       query.set('section', this.state.secondSection);
