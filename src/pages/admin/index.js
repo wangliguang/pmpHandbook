@@ -65,7 +65,7 @@ export default class extends React.Component {
     sections: [],
     secondSection: '-请选择节-',
     firstChapter: '-请选择章-',
-    tableName: 't_resource',
+    tableName: '-',
     submitData: [],
     cloudDirName: cloudDirArray[0],
   };
@@ -112,6 +112,13 @@ export default class extends React.Component {
   }
 
   handleSubmit = () => {
+
+    if (this.state.tableName === '-') {
+      Modal.warning({
+        title: '请选择资源类型',
+      });
+      return 
+    }
 
     if (this.state.tableName === 't_cloud' && this.state.cloudDirName === '-请选择-') {
       Modal.warning({
@@ -177,7 +184,11 @@ export default class extends React.Component {
         title: '保存成功'
       });
       this.setState({
-        submitData: []
+        sections: [],
+        secondSection: '-请选择节-',
+        firstChapter: '-请选择章-',
+        tableName: '-',
+        submitData: [],
       });
     }).catch((e) => {
       Modal.error({
