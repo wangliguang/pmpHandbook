@@ -158,6 +158,7 @@ export default class extends React.Component {
         query.set("tags", JSON.stringify(item.tags));
         query.set("url", item.url);
         query.set("name", item.name);
+        query.set("type", item.type);
         query.set("dir", this.state.cloudDirName);
         return query.save()
       }
@@ -174,6 +175,9 @@ export default class extends React.Component {
     Promise.all(requestPromises).then((res) => {
       Modal.success({
         title: '保存成功'
+      });
+      this.setState({
+        submitData: []
       });
     }).catch((e) => {
       Modal.error({

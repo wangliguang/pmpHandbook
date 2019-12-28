@@ -18,9 +18,15 @@ export default HocPage(class extends React.Component {
     const fileData = [];
     const imgData = [];
 
-    const query = Bmob.Query("t_resource");
-    query.find().then((res) => {
-      res.forEach(item => {
+    const resourceQuery = Bmob.Query("t_resource");
+    const cloudQuery = Bmob.Query("t_cloud");
+    
+    Promise.all([resourceQuery.find(), cloudQuery.find()]).then((res) => {
+      let allData = [];
+      res.forEach((item) => {
+        allData = allData.concat(item);
+      });
+      allData.forEach(item => {
         const reg = new RegExp(`${keyword}`);
         if (!reg.test(item.tags)) return;
         if (item.type === 'file') {
@@ -32,11 +38,12 @@ export default HocPage(class extends React.Component {
         }
         imgData.push(item.url);
       });
+      console.log(allData);
       this.setState({
         imgData,
         fileData,
       });
-    });
+    })
   }
 
   componentWillReceiveProps(nextProps) {
