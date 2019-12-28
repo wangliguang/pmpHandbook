@@ -1,11 +1,10 @@
-import { Layout, Menu, Breadcrumb, Icon, Button, Input } from 'antd';
+import { Layout, Menu, Breadcrumb, Button, Input } from 'antd';
 import React from 'react';
 import LAYOUT_DATA from './layout';
 import router from 'umi/router';
 import Link from 'umi/link';
 import STYLE from './index.css';
 import Bmob from "hydrogen-js-sdk";
-import { uploadFile } from '../tool/uploadFile';
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 const { Search } = Input;

@@ -32,7 +32,7 @@ export default class Content extends React.PureComponent {
 
     return (
       <Collapse bordered={false} defaultActiveKey={['1', '2', '3']}>
-          {this.props.imgs.length != 0 ? (
+          {this.props.imgs.length !== 0 ? (
             <Panel header="图片" key="1">
             <div className={STYLE.waterfall}>
               {this.props.imgs.map((img, index) => (
@@ -46,7 +46,7 @@ export default class Content extends React.PureComponent {
           </Panel>
           ) : null}
           
-          {this.props.files.length != 0 ? (
+          {this.props.files.length !== 0 ? (
             <Panel header="文档" key="2">
             <List
               bordered

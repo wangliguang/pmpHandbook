@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tag, Input, Tooltip, Icon } from 'antd';
+import { Tag, Input, Icon } from 'antd';
 import STYLE from './index.css';
 
 export default class extends React.Component {

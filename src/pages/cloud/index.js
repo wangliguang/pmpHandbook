@@ -39,7 +39,6 @@ export default HocPage(class extends React.Component {
     }
 
     query.find().then((res) => {
-      const cloudData = [];
       res.map((item) => {
         if (item.dir === '题库') {
           tiKuArr.array.push({

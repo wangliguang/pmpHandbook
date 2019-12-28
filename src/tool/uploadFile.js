@@ -11,7 +11,7 @@ function uploadFile(file) {
   return new Promise((resolve, reject) => {
     var xhr = new XMLHttpRequest();
     xhr.onload=function(event){
-      if(xhr.status==200){
+      if(xhr.status===200){
         resolve({
           url: `http://pmphandbook.test.upcdn.net${save_as}`,
           name: file.name,

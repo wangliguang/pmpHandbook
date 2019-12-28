@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select, Radio, Icon, Button, Modal } from 'antd';
+import { Select, Radio, Button, Modal } from 'antd';
 import Upload from '../../component/upload';
 import TagGroup from '../../component/tagGroup';
 import STYLE from './index.css';
