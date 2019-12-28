@@ -51,14 +51,23 @@ const sectionData = {
   ]
 };
 
+const cloudDirArray = [
+  '-请选择-',
+  '题库',
+  '做题技巧',
+  'pmpBok分章节',
+  '其他'
+]
+
 export default class extends React.Component {
 
   state = {
     sections: [],
     secondSection: '-请选择节-',
     firstChapter: '-请选择章-',
-    resourceType: 'image',
+    tableName: 't_resource',
     submitData: [],
+    cloudDirName: cloudDirArray[0],
   };
   
   handleCapterChange = value => {
@@ -156,14 +165,57 @@ export default class extends React.Component {
     });
   }
 
+  handleDirChange = (value) => {
+    this.setState({
+      cloudDirName: value
+    });
+  }
+
+  handleChangeTable = (e) => {
+    this.setState({
+      tableName: e.target.value
+    });
+  }
+
   render() {
     return (
       <div style={{ padding: 20, minHeight: 500, background: "white", display: "flex", justifyContent: 'flex-start', flexDirection: 'column'}}>
-        {this.renderSelectCapterSection()}
+        {this.renderSelectFileType()}
+        {this.state.tableName === 't_resource' && this.renderSelectCapterSection()}
+        {this.state.tableName === 't_cloud' && this.renderCloudType()}
         {this.renderUploadImage()}
         <Button style={{ marginTop: 100, width: 150, marginLeft: 150, marginBottom: 50 }} onClick={this.handleSubmit} type="primary">提交</Button>
       </div>
     )
+  }
+
+  renderCloudType() {
+    return (
+      <div style={{ marginTop: 30 }}>
+        <span>选择章节：</span>
+        <Select
+          defaultValue={cloudDirArray[0]}
+          style={{ width: 150, height: 40 }}
+          onChange={this.handleDirChange}
+        >
+          {cloudDirArray.map(capter => (
+            <Option key={capter}>{capter}</Option>
+          ))}
+        </Select>
+      </div>
+    );
+  }
+
+  renderSelectFileType() {
+    return (
+      <div style={{ marginTop: 30 }}>
+        <span>资源类型：</span>
+        <Radio.Group value={this.state.tableName} onChange={this.handleChangeTable}>
+          <Radio.Button value="t_resource">知识领域</Radio.Button>
+          <Radio.Button value="t_cloud">网盘</Radio.Button>
+        </Radio.Group>
+      </div>
+    );
   }
 
   renderUploadImage() {
@@ -192,7 +244,7 @@ export default class extends React.Component {
 
   renderSelectCapterSection() {
     return (
-      <div>
+      <div style={{ marginTop: 30 }}>
         <span>选择章节：</span>
         <Select
           defaultValue={capterData[0]}
