@@ -7,7 +7,7 @@ import Bmob from "hydrogen-js-sdk";
 
 const { Option } = Select;
 const capterData = [
-  '项目整合管理', '项目范围管理', 
+  '-请选择章-', '项目整合管理', '项目范围管理', 
   '项目进度管理', '项目成本管理',
   '项目质量管理', '项目资源管理',
   '项目沟通管理', '项目风险管理',
@@ -15,48 +15,48 @@ const capterData = [
 ];
 const sectionData = {
   '项目整合管理': [
-    '制定项目章程', '制定项目管理计划', '指导和管理项目工作',
+    '-请选择节-', '制定项目章程', '制定项目管理计划', '指导和管理项目工作',
     '管理项目知识', '监控项目工作', '实施整体变更控制', '结束项目或阶段'
   ],
   '项目范围管理': [
-    '规划范围管理', '收集需求', '定义范围',
+    '-请选择节-', '规划范围管理', '收集需求', '定义范围',
     '创建WBS', '确认范围', '控制范围'
   ],
   '项目进度管理': [
-    '规划进度管理', '定义活动', '排列活动顺序', 
+    '-请选择节-', '规划进度管理', '定义活动', '排列活动顺序', 
     '估算活动资源持续时间', '制定进度计划', '控制进度'
   ],
   '项目成本管理': [
-    '规划成本管理', '估算成本', '制定预算', '控制成本'
+    '-请选择节-', '规划成本管理', '估算成本', '制定预算', '控制成本'
   ],
   '项目质量管理': [
-    '规划质量管理', '管理质量', '控制质量'
+    '-请选择节-', '规划质量管理', '管理质量', '控制质量'
   ],
   '项目资源管理': [
-    '规划资源管理', '估算活动资源', '获取资源', 
+    '-请选择节-', '规划资源管理', '估算活动资源', '获取资源', 
     '建设团队', '管理团队', '控制资源'
   ],
   '项目沟通管理': [
-    '规划沟通管理', '管理沟通', '监督沟通'
+    '-请选择节-', '规划沟通管理', '管理沟通', '监督沟通'
   ],
   '项目风险管理': [
-    '规划风险管理', '识别风险', '实施定性风险分析',
+    '-请选择节-', '规划风险管理', '识别风险', '实施定性风险分析',
     '实施定量风险分析', '规划风险应对', '实施风险应对', '监督风险'
   ],
   '项目采购管理': [
-    '规划采购管理', '实施采购', '控制采购'
+    '-请选择节-', '规划采购管理', '实施采购', '控制采购'
   ],
   '项目相关方管理': [
-    '识别相关方', '规划相关方参与', '管理相关方参与', '监督相关方参与'
+    '-请选择节-', '识别相关方', '规划相关方参与', '管理相关方参与', '监督相关方参与'
   ]
 };
 
 export default class extends React.Component {
 
   state = {
-    sections: sectionData[capterData[0]],
-    secondSection: sectionData[capterData[0]][0],
-    firstChapter: capterData[0],
+    sections: [],
+    secondSection: '-请选择节-',
+    firstChapter: '-请选择章-',
     resourceType: 'image',
     submitData: [],
   };
@@ -103,6 +103,14 @@ export default class extends React.Component {
   }
 
   handleSubmit = () => {
+
+    if (this.state.firstChapter === '-请选择章-' || this.state.secondSection === '-请选择节-') {
+      Modal.warning({
+        title: '请选择要提交的章和节'
+      });
+      return;
+    }
+
     if (!this.state.submitData.length) {
       Modal.warning({
         title: '请选择需要提交的资源'
@@ -161,7 +169,7 @@ export default class extends React.Component {
   renderUploadImage() {
     return (
       <div style={{ marginTop: 30 }}>
-        <span>图片上传：</span>
+        <span>资源上传：</span>
         <div style={{ display: 'flex', flexWrap: 'wrap', }}>
           {this.state.submitData.map((file) => (
             <div style={{ display: "flex", flexDirection: 'row' }} key={`${file.url}`}>
