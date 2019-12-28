@@ -11,7 +11,6 @@ const { SubMenu } = Menu;
 const { Search } = Input;
 
 Bmob.initialize("22cb8890c273968f", "753159");
-Bmob.debug(true);
 
 export default class extends React.Component {
   state = {
