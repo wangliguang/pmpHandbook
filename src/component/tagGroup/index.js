@@ -12,6 +12,7 @@ export default class extends React.Component {
   handleClose = removedTag => {
     const tags = this.state.tags.filter(tag => tag !== removedTag);
     this.setState({ tags });
+    this.props.onChange && this.props.onChange(tags);
   };
 
   showInput = () => {

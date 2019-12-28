@@ -1,8 +1,9 @@
 import React from 'react';
-import { Select, Radio, Icon, Button } from 'antd';
+import { Select, Radio, Icon, Button, Modal } from 'antd';
 import Upload from '../../component/upload';
 import TagGroup from '../../component/tagGroup';
 import STYLE from './index.css';
+import Bmob from "hydrogen-js-sdk";
 
 const { Option } = Select;
 const capterData = [
@@ -55,13 +56,14 @@ export default class extends React.Component {
   state = {
     sections: sectionData[capterData[0]],
     secondSection: sectionData[capterData[0]][0],
+    firstChapter: capterData[0],
     resourceType: 'image',
-    files: [],
     submitData: [],
   };
   
   handleCapterChange = value => {
     this.setState({
+      firstChapter: value,
       sections: sectionData[value],
       secondSection: sectionData[value][0],
     });
@@ -73,28 +75,27 @@ export default class extends React.Component {
     });
   };
 
-  handleChangeResourceType = (e) => {
+  handleFileChange = (files) => {
+    let tmpSubmitData = files.map((file) => {
+      return {
+        url: file.url,
+        type: file.type,
+        name: file.name,
+        tags: [],
+      }
+    });
     this.setState({
-      resourceType: e.target.value
+      submitData: this.state.submitData.concat(tmpSubmitData),
     });
   }
 
-  handleOnChange = (files) => {
-    this.setState({
-      files,
-    });
-  }
-
-  handleTagChange = (url, tags) => {
-    let tmpSubmitData = this.state.submitData;
-
-    tmpSubmitData = tmpSubmitData.filter((item) => {
-      return item.url !== url
-    });
-
-    tmpSubmitData.push({
-      url,
-      tags,
+  handleTagChange = (file, tags) => {
+    const tmpSubmitData = this.state.submitData.map((item) => {
+      const tmpItem = item;
+      if (item.url === file.url) {
+        tmpItem.tags = tags;
+      }
+      return tmpItem;;
     });
     this.setState({
       submitData: tmpSubmitData
@@ -102,14 +103,59 @@ export default class extends React.Component {
   }
 
   handleSubmit = () => {
+    if (!this.state.submitData.length) {
+      Modal.warning({
+        title: '请选择需要提交的资源'
+      });
+      return;
+    }
 
+    console.log('this.state.submitData', this.state.submitData);
+    for (const item of this.state.submitData) {
+      if (item.tags.length === 0) {
+        Modal.warning({
+          title: '请给文件打标签'
+        });
+        break;
+      }
+    }
+    return;
+
+    let isHasTag = true;
+    const requestPromises = this.state.submitData.map((item) => {
+      const query = Bmob.Query('t_resource');
+      query.set('chapter', this.state.firstChapter);
+      query.set('section', this.state.secondSection);
+      query.set("tags", item.tags);
+      query.set("type", item.type);
+      query.set("url", item.url);
+      query.set("name", item.name);
+      return query.save()
+    });
+
+    if (!isHasTag) {
+      Modal.error({
+        title: '请给遗留的文件打标签'
+      });
+      return;
+    }
+
+    Promise.all(requestPromises).then((res) => {
+      Modal.success({
+        title: '保存成功'
+      });
+    }).catch((e) => {
+      Modal.error({
+        title: '保存失败',
+        content: e.error
+      });
+    });
   }
 
   render() {
     return (
       <div style={{ padding: 20, minHeight: 500, background: "white", display: "flex", justifyContent: 'flex-start', flexDirection: 'column'}}>
         {this.renderSelectCapterSection()}
-        {this.renderSelectFileType()}
         {this.renderUploadImage()}
         <Button style={{ marginTop: 100, width: 150, marginLeft: 150, marginBottom: 50 }} onClick={this.handleSubmit} type="primary">提交</Button>
       </div>
@@ -121,7 +167,7 @@ export default class extends React.Component {
       <div style={{ marginTop: 30 }}>
         <span>图片上传：</span>
         <div style={{ display: 'flex', flexWrap: 'wrap', }}>
-          {this.state.files.map((file) => (
+          {this.state.submitData.map((file) => (
             <div style={{ display: "flex", flexDirection: 'row' }} key={`${file.url}`}>
               <div className={STYLE.img}>
                 {file.type === 'image' ? (
@@ -130,26 +176,15 @@ export default class extends React.Component {
                   <span>{file.name}</span>
                 )}
               </div>  
-              <TagGroup onChange={(tags) => this.handleTagChange(file.url, tags)} style={{ marginLeft: 5, width: 110, height: 110, marginTop: 20 }}/> 
+              <TagGroup onChange={(tags) => this.handleTagChange(file, tags)} style={{ marginLeft: 5, width: 110, height: 110, marginTop: 20 }}/> 
             </div>
           ))}
-          <Upload onChange={this.handleOnChange} style={{ marginLeft: 20, marginTop: 20 }} />
+          <Upload onChange={this.handleFileChange} style={{ marginLeft: 20, marginTop: 20 }} />
         </div>
       </div>
     );
   }
 
-  renderSelectFileType() {
-    return (
-      <div style={{ marginTop: 30 }}>
-        <span>资源类型：</span>
-        <Radio.Group value={this.state.resourceType} onChange={this.handleChangeResourceType}>
-          <Radio.Button value="image">图片</Radio.Button>
-          <Radio.Button value="file">文件</Radio.Button>
-        </Radio.Group>
-      </div>
-    );
-  }
 
   renderSelectCapterSection() {
     return (
