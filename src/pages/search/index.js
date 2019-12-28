@@ -38,7 +38,6 @@ export default HocPage(class extends React.Component {
         }
         imgData.push(item.url);
       });
-      console.log(allData);
       this.setState({
         imgData,
         fileData,

@@ -47,7 +47,6 @@ export default class extends React.Component {
   } 
 
   render() {
-    console.log(getCookie('role'));
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider width={250} className={STYLE.sider} collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} breakpoint="lg">

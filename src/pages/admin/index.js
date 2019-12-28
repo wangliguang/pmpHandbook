@@ -210,6 +210,17 @@ export default class extends React.Component {
     });
   }
 
+  handleDel = (url) => {
+    let tempSubmitData = this.state.submitData;
+    tempSubmitData = tempSubmitData.filter((item) => {
+      return item.url !== url;
+    });
+    console.log('tempSubmitData', tempSubmitData);
+    this.setState({
+      submitData: tempSubmitData,
+    });
+  }
+
   render() {
     return (
       <div style={{ padding: 20, minHeight: 500, background: "white", display: "flex", justifyContent: 'flex-start', flexDirection: 'column'}}>
@@ -264,6 +275,9 @@ export default class extends React.Component {
                 ) : (
                   <span>{file.name}</span>
                 )}
+                <div onClick={() => this.handleDel(file.url)} className={STYLE.del}>
+                  <strong>X</strong>
+                </div>
               </div>  
               <TagGroup onChange={(tags) => this.handleTagChange(file, tags)} style={{ marginLeft: 5, width: 110, height: 110, marginTop: 20 }}/> 
             </div>
