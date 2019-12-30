@@ -104,7 +104,7 @@ export default class extends React.Component {
                 }} style={{ marginRight: 20}}>后台</Button>
               )}
 
-              {OS.isPC ? (
+              {OS.isPc ? (
                 <Button onClick={() => {
                   if (getCookie('toekn')) return;
                    router.push(`/login`);
