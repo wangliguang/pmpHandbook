@@ -6,6 +6,7 @@ import Link from 'umi/link';
 import STYLE from './index.css';
 import Bmob from "hydrogen-js-sdk";
 import { getCookie } from '../tool/cookie';
+import OS from '../tool/platform';
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 const { Search } = Input;
@@ -20,7 +21,13 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    router.replace('/integration/pmp41?chapter=项目整合管理&section=制定项目章程');
+    if (OS.isPc) {
+      router.replace('/integration/pmp41?chapter=项目整合管理&section=制定项目章程');
+    } else {
+      this.setState({ title: '搜索', subTitle: ''});
+      router.replace('/search');
+    }
+    
   }
 
   onCollapse = collapsed => {
@@ -49,7 +56,14 @@ export default class extends React.Component {
   render() {
     return (
       <Layout style={{ minHeight: '100vh' }}>
-        <Sider width={250} className={STYLE.sider} collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} breakpoint="lg">
+        {OS.isPc ? <Sider 
+          width={250} 
+          className={STYLE.sider} 
+          collapsible 
+          collapsed={this.state.collapsed} 
+          onCollapse={this.onCollapse} 
+          breakpoint="lg"
+        >
           <div className="logo" />
           <Menu theme="dark" defaultOpenKeys={['四：项目整合管理']} defaultSelectedKeys={['4.1：制定项目章程']} mode="inline">
             {LAYOUT_DATA.map((item) => (
@@ -65,8 +79,8 @@ export default class extends React.Component {
             </SubMenu>
             ))}
           </Menu>
-        </Sider>
-        <Layout style={{ marginLeft: this.state.collapsed ? 80 : 250 }}>
+        </Sider> : null}
+        <Layout style={{ marginLeft: OS.isPc ? (this.state.collapsed ? 80 : 250) : 0 }}>
           <Header style={{ background: '#fff', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <Search
               placeholder="请输入关键字"
@@ -83,20 +97,22 @@ export default class extends React.Component {
                 this.setState({ title: '云盘', subTitle: ''});
               }} style={{ marginRight: 20}}>云盘</Button>
 
-              {getCookie('role') === '1' && (
+              {getCookie('role') === '1' && OS.isPc && (
                 <Button onClick={() => {
                   router.push(`/admin`);
                   this.setState({ title: '后台', subTitle: '', collapsed: true});
                 }} style={{ marginRight: 20}}>后台</Button>
               )}
 
-              <Button onClick={() => {
-                if (getCookie('toekn')) return;
-                 router.push(`/login`);
-                this.setState({ title: '登录', subTitle: '', collapsed: true });
-              }} style={{ marginRight: 20}}>
-                {getCookie('token') ? `你好，${getCookie('username')}` : '登录'}
-              </Button>
+              {OS.isPC ? (
+                <Button onClick={() => {
+                  if (getCookie('toekn')) return;
+                   router.push(`/login`);
+                  this.setState({ title: '登录', subTitle: '', collapsed: true });
+                }} style={{ marginRight: 20}}>
+                  {getCookie('token') ? `你好，${getCookie('username')}` : '登录'}
+                </Button>
+              ) : null}
 
             </div>
 
