@@ -215,7 +215,6 @@ export default class extends React.Component {
     tempSubmitData = tempSubmitData.filter((item) => {
       return item.url !== url;
     });
-    console.log('tempSubmitData', tempSubmitData);
     this.setState({
       submitData: tempSubmitData,
     });
