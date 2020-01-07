@@ -20,3 +20,26 @@
   position: fixed;
   left: 0;
 }
+
+
+.hideQrcode {
+	position: absolute;
+  z-index: 99;
+  top: 50px;
+  left: -100px;
+	width: 250px;
+	max-width: none;
+  height: 0px;
+  border: 0px solid #0085ba;
+}
+
+.showQrcode {
+	position: absolute;
+  z-index: 99;
+  top: 50px;
+  left: -100px;
+	width: 250px;
+	max-width: none;
+  height: 300px;
+  border: 2px solid #0085ba;
+}

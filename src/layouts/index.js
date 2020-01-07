@@ -1,4 +1,4 @@
-import { Layout, Menu, Breadcrumb, Button, Input } from 'antd';
+import { Layout, Menu, Breadcrumb, Button, Input, Icon } from 'antd';
 import React from 'react';
 import LAYOUT_DATA from './layout';
 import router from 'umi/router';
@@ -92,6 +92,15 @@ export default class extends React.Component {
             />
             
             <div>
+              <Button style={{ position: 'relative', marginRight: 20 }} onMouseOver={() => {
+                document.getElementById('qrcode').setAttribute('class', STYLE.showQrcode);
+              }} onMouseOut={() => {
+                document.getElementById('qrcode').setAttribute('class', STYLE.hideQrcode);
+              }}>
+                <Icon className={STYLE.weixin} type="wechat" />
+                <img id='qrcode' className={STYLE.hideQrcode} src={require('../../images/callMe.jpg')}/>
+              </Button>
+
               <Button onClick={() => {
                 router.push(`/cloud`);
                 this.setState({ title: '云盘', subTitle: ''});
