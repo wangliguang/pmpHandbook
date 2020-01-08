@@ -88,7 +88,7 @@ export default class extends React.Component {
                 this.setState({ title: '搜索', subTitle: ''});
                 router.push(`/search?keyword=${keyword}`);
               }}
-              style={{ width: 250, marginLeft: 20 }}
+              style={{ width: OS.isPc ? 250 : 180, marginLeft: 20 }}
             />
             
             <div>
